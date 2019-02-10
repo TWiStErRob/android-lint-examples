@@ -31,3 +31,13 @@ repositories {
 dependencies {
 	implementation "androidx.annotation:annotation:1.0.1"
 }
+
+tasks.configureEach {
+	it.inputs.files(android.sourceSets.collectMany { it.java.srcDirs })
+	it.inputs.files(android.sourceSets.collectMany { it.res.srcDirs })
+	if (it.name == "lint") {
+		it.outputs.file(android.lintOptions.xmlOutput ?: "${buildDir}/reports/lint-results.xml")
+		it.outputs.file(android.lintOptions.htmlOutput ?: "${buildDir}/reports/lint-results.html")
+		it.outputs.file(android.lintOptions.textOutput ?: "${buildDir}/reports/lint-results.txt")
+	}
+}
