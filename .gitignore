@@ -1,0 +1,23 @@
+# IDEA
+*.iml
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+
+# Gradle
+.gradle
+build/
+
+# Android
+captures/
+/local.properties
+.externalNativeBuild
+
+# Mac
+.DS_Store
+
+# Custom
+temp/

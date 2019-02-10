@@ -1,0 +1,9 @@
+include ':Correctness'
+
+include ':Performance'
+
+include ':Accessibility'
+
+include ':Usability'
+
+include ':TranslationsAndInternationalization'
