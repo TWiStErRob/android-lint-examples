@@ -4,6 +4,7 @@ include ':Correctness'
 include ':Correctness:AaptCrash'
 include ':Correctness:AccidentalOctal'
 include ':Correctness:AdapterViewChildren'
+include ':Correctness:OnClick'
 
 include ':Performance'
 include ':Performance:SyntheticAccessor'
