@@ -1,0 +1,4 @@
+<manifest package="net.twisterrob.lints.correctness.StopShip" />
+
+<!-- REPORTED not working https://issuetracker.google.com/issues/117485020 -->
+<!-- STOPSHIP in AndroidManifest.xml -->
