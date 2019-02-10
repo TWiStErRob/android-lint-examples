@@ -1,0 +1,7 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+	<string name="invalid_apostrophe" tools:ignore="TypographyQuotes">Hello' World</string>
+
+	<string name="invalid_unicode" tools:ignore="TypographyQuotes">Unicode: \uinvalid</string>
+
+</resources>
