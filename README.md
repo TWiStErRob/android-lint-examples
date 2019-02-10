@@ -22,6 +22,14 @@ Reading
 -------
  * What is lint? What does it?  
    http://tools.android.com/lint/overview
- * List of lint checks with explanation (`lint --show`) 
+ * List of lint checks with explanation  
    http://tools.android.com/tips/lint-checks
- * List of lint checks (concise): `lint --list`
+   ```shell
+   lint --show
+   ```
+ * List of lint checks (concise)  
+   ```shell
+   lint --list
+   ```
+ * List of lint checks supported by Android Studio 3.3.1  
+   [`.idea/inspectionProfiles/Project_Default.xml`](.idea/inspectionProfiles/Project_Default.xml)
