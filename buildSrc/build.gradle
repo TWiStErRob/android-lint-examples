@@ -1,0 +1,35 @@
+import com.android.builder.model.Version
+
+// this block specifies the classpath of this file only, has no effect on the project itself
+buildscript {
+	ext.props = new Properties().with {
+		file("../gradle.properties").withInputStream { load(it) }
+		return it
+	}
+	repositories {
+		google()
+	}
+	dependencies {
+		// to be able to access com.android.builder.model.Version artifact
+		classpath "com.android.tools.build:builder-model:${props.VERSION_AGP}"
+	}
+}
+
+apply plugin: 'java-library'
+
+repositories {
+	google()
+	jcenter()
+}
+
+configurations {
+	// don't want to use this, just so IDEA puts it in the project for source browsing
+	create('sourcesOnly')
+	// hack to actually make Gradle resolve and use this
+	compileOnly.extendsFrom(sourcesOnly)
+}
+
+dependencies {
+	sourcesOnly("com.android.tools.lint:lint-api:${Version.ANDROID_TOOLS_BASE_VERSION}") { transitive = false }
+	sourcesOnly("com.android.tools.lint:lint-checks:${Version.ANDROID_TOOLS_BASE_VERSION}") { transitive = false }
+}
