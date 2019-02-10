@@ -3,6 +3,7 @@ include ':gradle:debugger'
 include ':Correctness'
 include ':Correctness:AaptCrash'
 include ':Correctness:AccidentalOctal'
+include ':Correctness:AdapterViewChildren'
 
 include ':Performance'
 include ':Performance:SyntheticAccessor'
