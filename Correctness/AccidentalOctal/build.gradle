@@ -1,0 +1,8 @@
+apply from: rootProject.file('gradle/module-check-lib.gradle')
+
+android {
+	defaultConfig {
+		versionName "0.1.0"
+		versionCode 010
+	}
+}
