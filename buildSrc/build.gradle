@@ -35,10 +35,5 @@ configurations {
 dependencies {
 	//implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${props.VERSION_KOTLIN}"
 
-	sourcesOnly("com.android.tools.lint:lint-api:${Version.ANDROID_TOOLS_BASE_VERSION}") {
-		transitive = false
-	}
-	sourcesOnly("com.android.tools.lint:lint-checks:${Version.ANDROID_TOOLS_BASE_VERSION}") {
-		transitive = false
-	}
+	sourcesOnly "com.android.tools.lint:lint-checks:${Version.ANDROID_TOOLS_BASE_VERSION}"
 }
