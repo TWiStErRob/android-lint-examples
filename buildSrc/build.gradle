@@ -8,14 +8,17 @@ buildscript {
 	}
 	repositories {
 		google()
+		//jcenter()
 	}
 	dependencies {
 		// to be able to access com.android.builder.model.Version artifact
 		classpath "com.android.tools.build:builder-model:${props.VERSION_AGP}"
+		//classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${props.VERSION_KOTLIN}"
 	}
 }
 
 apply plugin: 'java-library'
+//apply plugin: 'kotlin'
 
 repositories {
 	google()
@@ -30,6 +33,12 @@ configurations {
 }
 
 dependencies {
-	sourcesOnly("com.android.tools.lint:lint-api:${Version.ANDROID_TOOLS_BASE_VERSION}") { transitive = false }
-	sourcesOnly("com.android.tools.lint:lint-checks:${Version.ANDROID_TOOLS_BASE_VERSION}") { transitive = false }
+	//implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${props.VERSION_KOTLIN}"
+
+	sourcesOnly("com.android.tools.lint:lint-api:${Version.ANDROID_TOOLS_BASE_VERSION}") {
+		transitive = false
+	}
+	sourcesOnly("com.android.tools.lint:lint-checks:${Version.ANDROID_TOOLS_BASE_VERSION}") {
+		transitive = false
+	}
 }
