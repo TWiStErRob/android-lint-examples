@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Debug lint" type="CompoundRunConfigurationType" factoryName="Compound Run Configuration">
+    <toRun type="GradleRunConfiguration" name="Debug lint: Run Gradle lint in Debug Mode" />
+    <toRun type="Remote" name="Debug lint: Attach to Gradle" />
+    <method v="2" />
+  </configuration>
+</component>

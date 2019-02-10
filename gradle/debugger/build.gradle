@@ -1,0 +1,29 @@
+tasks.register("debugExternal") {
+	// dummy task to execute an external tool that launches the Gradle build,
+	// see "Debug lint: Run Gradle lint in Debug Mode" run configuration
+}
+
+tasks.register("debugBuild", GradleBuild.class) { GradleBuild task ->
+	// note: GradleBuild doesn't work with "Before launch"
+	// because it runs in-process and cannot disable daemon in task.startParameter
+	task.dir = rootDir
+	task.tasks = [ 'lint' ]
+	task.startParameter.systemPropertiesArgs['org.gradle.debug'] = true
+	task.startParameter.systemPropertiesArgs['org.gradle.daemon'] = false
+}
+
+// @Experimental("not sure if it works, and may not pick up some global Gradle configuration")
+tasks.register("debugWrapper", JavaExec.class) { JavaExec task ->
+	// note: JavaExec doesn't work because the there's no Run button for the Run config
+	// and it somehow adds two jdwp agents (probably because of debug button)
+	task.main = "org.gradle.wrapper.GradleWrapperMain"
+	task.classpath = files(
+			file("../wrapper/gradle-wrapper.jar")
+	)
+	task.workingDir = rootDir
+	task.args = [ 'lint' ]
+	task.jvmArgs += [ '-Dorg.gradle.daemon=false' ]
+	task.jvmArgs += [ '-Dorg.gradle.debug=true' ]
+	//task.debug = true
+	task.ignoreExitValue = true
+}

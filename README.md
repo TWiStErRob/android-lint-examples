@@ -18,6 +18,30 @@ Setup
 -----
 The project was developed using Android Studio 3.3.1. Simply import the Gradle project.
 
+Debugging lint
+--------------
+To see why it's so complicated:
+ * https://youtrack.jetbrains.com/issue/IDEA-113525
+ * https://intellij-support.jetbrains.com/hc/en-us/community/posts/206187849-Sharing-external-tool-config-via-version-control
+
+### Single-click (more setup)
+Need to set up an external tool once (can't share an External tool):
+ * Create an External tool named "*Debug lint: gradlew lint (no daemon, debug)*" with exactly this name
+ * Add it to the "*External Tools*" group with exactly this group name
+ * **Program**: `$ProjectFileDir$/gradlew.bat`
+ * **Arguments**: `lint --no-daemon -Dorg.gradle.debug=true`
+ * **Working directory**: `$ProjectFileDir$`
+ * Suggested: tick "Open console" and "Make active on stdout"
+
+Running it is simple: debug "*Debug lint*" compound run configuration
+
+### Less setup (complex start)
+Every time you want to start you'll have to do these two actions:
+ * run `gradlew --no-daemon -Dorg.gradle.debug=true lint`  
+   (this execution will hang, waiting for debugger to attach)
+   can be more specific about which module's lint you want to run (e.g. `:Correctness:AaptCrash:lint`)
+ * in Android Studio debug the "*Attach to Gradle*" task
+
 Reading
 -------
  * What is lint? What does it?  
