@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 
 android {
 	compileSdkVersion 28
@@ -30,6 +31,7 @@ repositories {
 
 dependencies {
 	implementation "androidx.annotation:annotation:1.0.1"
+	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${VERSION_KOTLIN}"
 }
 
 project.ext.expectedViolationCount = { count ->
