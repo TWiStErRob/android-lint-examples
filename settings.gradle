@@ -1,6 +1,7 @@
 include ':Correctness'
 
 include ':Performance'
+include ':Performance:SyntheticAccessor'
 
 include ':Accessibility'
 

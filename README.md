@@ -2,7 +2,9 @@ Project that reproduces every lint violation out there.
 
 Warning
 -------
-This project is not meant to show good practices, quite the opposite, code is written intentionally badly to reproduce the lint violations. That being said, I strive to use best practices and style whenever possible.
+This project is not meant to show good practices, quite the opposite, code is written intentionally badly to reproduce the lint violations. That being said, I strive to use best practices and style whenever possible. Examples one should almost never do in production:
+ * Uppercase Gradle module names  
+   I chose to use un-standard naming so that it's extremely clear which module deals with what lint check. It also allows to automate easily.
 
 (*Supporting code (like `build.gradle`s) were written with best intentions thought.*)
 

@@ -1,0 +1,33 @@
+apply plugin: 'com.android.library'
+
+android {
+	compileSdkVersion 28
+
+	defaultConfig {
+		minSdkVersion 14
+	}
+	
+	lintOptions {
+		boolean onlySpecific = project.property("lints.check.only.specific").toBoolean()
+		it.abortOnError = false
+		it.checkAllWarnings = !onlySpecific
+		if (onlySpecific) {
+			it.check project.name
+		}
+		it.checkTestSources = true
+		it.explainIssues = true
+		it.showAll = true
+		it.checkReleaseBuilds = false
+		it.checkGeneratedSources = false
+		it.checkDependencies = false
+	}
+}
+
+repositories {
+	google()
+	jcenter()
+}
+
+dependencies {
+	implementation "androidx.annotation:annotation:1.0.1"
+}
