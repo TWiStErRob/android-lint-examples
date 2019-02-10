@@ -18,6 +18,7 @@ tasks.register("createModule") {
 	doFirst {
 		def checkCategory = project.property("checkCategory").toString()
 		def checkName = project.property("checkName").toString()
+		def packageName = "net.twisterrob.lints.${checkCategory.toLowerCase()}"
 		def module = project(":${checkCategory}").file(checkName)
 
 		def buildGradle = new File(module, "build.gradle")
@@ -26,7 +27,22 @@ tasks.register("createModule") {
 
 		def manifest = new File(module, "src/main/AndroidManifest.xml")
 		manifest.parentFile.mkdirs()
-		manifest.text = "<manifest package=\"net.twisterrob.lints.${checkCategory.toLowerCase()}.${checkName}\" />\n"
+		manifest.text = "<manifest package=\"${packageName}.${checkName}\" />\n"
+		
+		def java = new File(module, "src/main/java/${packageName.replace('.', '/')}/${checkName}Violation.java")
+		java.parentFile.mkdirs()
+		java.text = """
+			package ${packageName};
+			
+			public class ${checkName}Violation {
+			}
+		""".stripIndent().trim() + "\n"
+
+		def kotlin = new File(module, "src/main/java/${packageName.replace('.', '/')}/${checkName}Violation.kt")
+		kotlin.parentFile.mkdirs()
+		kotlin.text = """
+			package ${packageName}
+		""".stripIndent().trim() + "\n"
 
 		def settingsGradle = rootProject.file("settings.gradle")
 		def lines = settingsGradle.text.split(/\r?\n/).toList()
