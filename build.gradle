@@ -13,3 +13,31 @@ buildscript {
 tasks.register("clean", Delete.class) {
     delete rootProject.buildDir
 }
+
+tasks.register("createModule") {
+	doFirst {
+		def checkCategory = project.property("checkCategory").toString()
+		def checkName = project.property("checkName").toString()
+		def module = project(":${checkCategory}").file(checkName)
+
+		def buildGradle = new File(module, "build.gradle")
+		buildGradle.parentFile.mkdirs()
+		buildGradle.text = "apply from: rootProject.file('gradle/module-check-lib.gradle')\n"
+
+		def manifest = new File(module, "src/main/AndroidManifest.xml")
+		manifest.parentFile.mkdirs()
+		manifest.text = "<manifest package=\"net.twisterrob.lints.${checkCategory.toLowerCase()}.${checkName}\" />\n"
+
+		def settingsGradle = rootProject.file("settings.gradle")
+		def lines = settingsGradle.text.split(/\r?\n/).toList()
+		def categoryStartIndex = lines.findIndexOf { it == "include ':${checkCategory}'" }
+		def categoryEndIndex = lines.findIndexOf(categoryStartIndex + 1) { it.count(":") == 1 }
+		def includeLine = "include ':${checkCategory}:${checkName}'"
+		def currentIndex = categoryStartIndex + 1
+		def insertIndex = lines.findIndexOf(currentIndex) {
+			currentIndex++ < categoryEndIndex && (it == "" || includeLine < it)
+		}
+		lines.add(insertIndex, includeLine)
+		settingsGradle.text = lines.join(System.lineSeparator()) + System.lineSeparator()
+	}
+}

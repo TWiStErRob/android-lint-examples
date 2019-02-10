@@ -18,6 +18,13 @@ Setup
 -----
 The project was developed using Android Studio 3.3.1. Simply import the Gradle project.
 
+Maintenance
+-----------
+Adding a new check automatically:
+```
+gradlew createModule -PcheckCategory=Correctness -PcheckName=AdapterViewChildren
+```
+
 Debugging lint
 --------------
 To see why it's so complicated:
