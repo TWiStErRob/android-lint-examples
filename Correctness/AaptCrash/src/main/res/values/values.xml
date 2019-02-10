@@ -1,5 +1,7 @@
 <resources>
+
 	<style name="StyleWithId">
 		<item name="android:id">@+id/creates_an_id</item>
 	</style>
+
 </resources>

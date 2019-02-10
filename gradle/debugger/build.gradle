@@ -7,7 +7,7 @@ tasks.register("debugBuild", GradleBuild.class) { GradleBuild task ->
 	// note: GradleBuild doesn't work with "Before launch"
 	// because it runs in-process and cannot disable daemon in task.startParameter
 	task.dir = rootDir
-	task.tasks = [ 'lint' ]
+	task.tasks = ['lint']
 	task.startParameter.systemPropertiesArgs['org.gradle.debug'] = true
 	task.startParameter.systemPropertiesArgs['org.gradle.daemon'] = false
 }
@@ -21,9 +21,9 @@ tasks.register("debugWrapper", JavaExec.class) { JavaExec task ->
 			file("../wrapper/gradle-wrapper.jar")
 	)
 	task.workingDir = rootDir
-	task.args = [ 'lint' ]
-	task.jvmArgs += [ '-Dorg.gradle.daemon=false' ]
-	task.jvmArgs += [ '-Dorg.gradle.debug=true' ]
+	task.args = ['lint']
+	task.jvmArgs += ['-Dorg.gradle.daemon=false']
+	task.jvmArgs += ['-Dorg.gradle.debug=true']
 	//task.debug = true
 	task.ignoreExitValue = true
 }

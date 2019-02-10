@@ -6,7 +6,7 @@ android {
 	defaultConfig {
 		minSdkVersion 14
 	}
-	
+
 	lintOptions {
 		boolean onlySpecific = project.property("lints.check.only.specific").toBoolean()
 		it.abortOnError = false
