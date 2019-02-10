@@ -1,4 +1,6 @@
 apply from: rootProject.file('gradle/module-check-lib.gradle')
 
+tasks.named("lintVerifyCount").configure { it.expectedViolationCount = 3 }
+
 // REPORTED not working https://issuetracker.google.com/issues/117485020
 // STOPSHIP in build.gradle

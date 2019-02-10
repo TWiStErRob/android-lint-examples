@@ -32,6 +32,30 @@ dependencies {
 	implementation "androidx.annotation:annotation:1.0.1"
 }
 
+def lintVerifyCount = tasks.register("lintVerifyCount") { task ->
+	ext.expectedViolationCount = 1
+	task.inputs.property("expectedViolationCount", expectedViolationCount)
+	File report = android.lintOptions.xmlOutput ?: file("${buildDir}/reports/lint-results.xml")
+	task.inputs.file(report)
+	def checkName = project.name
+	doLast {
+		def expectedViolationCount = ext.expectedViolationCount
+		def numberOfIssues = report.text.count("<issue\n")
+		def numberOfViolations = report.text.count("id=\"${checkName}\"")
+		//println("${checkName}: ${expectedViolationCount} == ${numberOfViolations}/${numberOfIssues}")
+		if (numberOfViolations < numberOfIssues) {
+			throw new GradleException(
+					"There were ${numberOfIssues} issues in ${project}, " +
+							"but not all of them were ${checkName}")
+		}
+		if (numberOfViolations != expectedViolationCount) {
+			throw new GradleException(
+					"Expected ${expectedViolationCount}, " +
+							"but there were ${numberOfViolations} ${checkName} reported.")
+		}
+	}
+}
+
 tasks.configureEach { Task task ->
 	if (task.name == "lint") {
 		task.inputs.files(android.sourceSets.collectMany { it.java.srcDirs })
@@ -40,5 +64,7 @@ tasks.configureEach { Task task ->
 		task.outputs.file(android.lintOptions.xmlOutput ?: "${buildDir}/reports/lint-results.xml")
 		task.outputs.file(android.lintOptions.htmlOutput ?: "${buildDir}/reports/lint-results.html")
 		task.outputs.file(android.lintOptions.textOutput ?: "${buildDir}/reports/lint-results.txt")
+
+		task.finalizedBy(lintVerifyCount)
 	}
 }
