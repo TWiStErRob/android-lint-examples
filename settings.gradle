@@ -11,11 +11,15 @@ include ':Correctness:StringFormatInvalid'
 include ':Correctness:StringFormatMatches'
 include ':Correctness:SuspiciousImport'
 
+include ':Usability'
+
+include ':Security'
+
 include ':Performance'
 include ':Performance:SyntheticAccessor'
 
+include ':Internationalization'
+
 include ':Accessibility'
 
-include ':Usability'
-
-include ':TranslationsAndInternationalization'
+include ':Lint'

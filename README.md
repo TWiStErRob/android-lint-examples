@@ -64,3 +64,21 @@ Reading
    ```
  * List of lint checks supported by Android Studio 3.3.1  
    [`.idea/inspectionProfiles/Project_Default.xml`](.idea/inspectionProfiles/Project_Default.xml)
+ * Lint categories (based on `lint-checks-26.0.0-dev.jar`)
+   ```shell
+   lint --show | grep 'Category:' | uniq --count | sort --reverse
+   ```
+   result manually re-sorted to account for nested categories (total: 313):
+   ```
+   176 Category: Correctness
+    11 Category: Correctness:Messages
+     2 Category: Correctness:Chrome OS
+    14 Category: Usability
+    18 Category: Usability:Icons
+     6 Category: Usability:Typography
+    37 Category: Security
+    35 Category: Performance
+     5 Category: Internationalization
+     4 Category: Internationalization:Bidirectional Text
+     5 Category: Accessibility
+   ```
