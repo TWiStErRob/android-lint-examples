@@ -14,6 +14,7 @@ include ':Correctness:SuspiciousImport'
 include ':Usability'
 
 include ':Security'
+include ':Security:EasterEgg'
 
 include ':Performance'
 include ':Performance:SyntheticAccessor'
