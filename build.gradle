@@ -56,4 +56,10 @@ tasks.register("createModule") {
 		lines.add(insertIndex, includeLine)
 		settingsGradle.text = lines.join(System.lineSeparator()) + System.lineSeparator()
 	}
+
+	doLast {
+		def checkCategory = project.property("checkCategory").toString()
+		def checkName = project.property("checkName").toString()
+		println("Run lint on this module with\ngradlew :${checkCategory}:${checkName}:lint")
+	}
 }
