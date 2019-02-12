@@ -71,8 +71,10 @@ def lintVerifyCount = tasks.register("lintVerifyCount") { task ->
 	}
 }
 
+def debugging = project.findProperty("org.gradle.debug")?.toBoolean() == true
+
 tasks.configureEach { Task task ->
-	if (task.name == "lint") {
+	if (task.name == "lint" && !debugging) {
 		task.inputs.files(android.sourceSets.collectMany { it.java.srcDirs })
 		task.inputs.files(android.sourceSets.collectMany { it.res.srcDirs })
 
