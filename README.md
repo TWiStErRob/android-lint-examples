@@ -53,6 +53,8 @@ Reading
 -------
  * What is lint? What does it?  
    http://tools.android.com/lint/overview
+ * lint source code tests
+   https://android.googlesource.com/platform/tools/base/+/studio-master-dev/lint/libs/lint-tests/src/test/java/com/android/tools/lint/checks
  * List of lint checks with explanation  
    http://tools.android.com/tips/lint-checks
    ```shell
