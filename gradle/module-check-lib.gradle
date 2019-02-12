@@ -40,6 +40,7 @@ dependencies {
 project.ext.expectedViolationCount = { count ->
 	tasks.named("lintVerifyCount").configure { task ->
 		task.ext.expectedViolationCount = count
+		task.inputs.property("expectedViolationCount", expectedViolationCount)
 	}
 }
 
