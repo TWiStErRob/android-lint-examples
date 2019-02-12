@@ -76,6 +76,7 @@ def debugging = project.findProperty("org.gradle.debug")?.toBoolean() == true
 tasks.configureEach { Task task ->
 	if (task.name == "lint" && !debugging) {
 		task.inputs.files(android.sourceSets.collectMany { it.java.srcDirs })
+		task.inputs.files(android.sourceSets.collectMany { it.kotlin.srcDirs })
 		task.inputs.files(android.sourceSets.collectMany { it.res.srcDirs })
 
 		task.outputs.file(android.lintOptions.xmlOutput ?: "${buildDir}/reports/lint-results.xml")
