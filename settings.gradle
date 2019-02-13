@@ -11,6 +11,7 @@ include ':Correctness:StringEscaping'
 include ':Correctness:StringFormatInvalid'
 include ':Correctness:StringFormatMatches'
 include ':Correctness:SuspiciousImport'
+include ':Correctness:UniqueConstants'
 include ':Correctness:WrongViewCast'
 
 include ':Usability'
