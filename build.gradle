@@ -2,13 +2,19 @@ buildscript {
 	repositories {
 		google()
 		jcenter()
+		maven { name = 'TWiStErRob'; url = 'https://dl.bintray.com/twisterrob/maven' }
 	}
 
 	dependencies {
 		classpath "com.android.tools.build:gradle:${VERSION_AGP}"
 		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${VERSION_KOTLIN}"
+		classpath "net.twisterrob.gradle:twister-quality:0.8"
 	}
 }
+
+apply plugin: 'net.twisterrob.quality'
+
+afterEvaluate { tasks.named("lint").configure { it.enabled = false } }
 
 tasks.register("clean", Delete.class) {
 	delete rootProject.buildDir
