@@ -15,6 +15,13 @@ tasks.register("clean", Delete.class) {
 }
 
 tasks.register("createModule") {
+	def gitAdd = { File file ->
+		exec {
+			commandLine "git", "add", file.absolutePath
+			ignoreExitValue = true
+		}
+	}
+
 	doFirst {
 		def checkCategory = project.property("checkCategory").toString()
 		def checkName = project.property("checkName").toString()
@@ -24,11 +31,13 @@ tasks.register("createModule") {
 		def buildGradle = new File(module, "build.gradle")
 		buildGradle.parentFile.mkdirs()
 		buildGradle.text = "apply from: rootProject.file('gradle/module-check-lib.gradle')\n"
+		gitAdd(buildGradle)
 
 		def manifest = new File(module, "src/main/AndroidManifest.xml")
 		manifest.parentFile.mkdirs()
 		manifest.text = "<manifest package=\"${packageName}.${checkName}\" />\n"
-		
+		gitAdd(manifest)
+
 		def java = new File(module, "src/main/java/${packageName.replace('.', '/')}/${checkName}Violation.java")
 		java.parentFile.mkdirs()
 		java.text = """
@@ -37,12 +46,14 @@ tasks.register("createModule") {
 			public class ${checkName}Violation {
 			}
 		""".stripIndent().trim() + "\n"
+		gitAdd(java)
 
 		def kotlin = new File(module, "src/main/java/${packageName.replace('.', '/')}/${checkName}Violation.kt")
 		kotlin.parentFile.mkdirs()
 		kotlin.text = """
 			package ${packageName}
 		""".stripIndent().trim() + "\n"
+		gitAdd(kotlin)
 
 		def settingsGradle = rootProject.file("settings.gradle")
 		def lines = settingsGradle.text.split(/\r?\n/).toList()
@@ -55,6 +66,7 @@ tasks.register("createModule") {
 		}
 		lines.add(insertIndex, includeLine)
 		settingsGradle.text = lines.join(System.lineSeparator()) + System.lineSeparator()
+		gitAdd(settingsGradle)
 	}
 
 	doLast {
