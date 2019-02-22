@@ -1,0 +1,7 @@
+apply from: rootProject.file('gradle/module-check-lib.gradle')
+
+android.compileOptions.sourceCompatibility = JavaVersion.VERSION_1_8
+android.compileOptions.targetCompatibility = JavaVersion.VERSION_1_8
+
+// Kotlin should be 5, see ClickableViewAccessibilityViolation_OnTouchListenerNotCallingPerformClickKt
+expectedViolationCount(6 /*java*/ + 4 /*kotlin*/)
