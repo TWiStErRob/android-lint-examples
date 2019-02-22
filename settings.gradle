@@ -26,5 +26,6 @@ include ':Performance:SyntheticAccessor'
 include ':Internationalization'
 
 include ':Accessibility'
+include ':Accessibility:GetContentDescriptionOverride'
 
 include ':Lint'
