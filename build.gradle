@@ -60,6 +60,7 @@ tasks.register("createModule") {
 	doLast {
 		def checkCategory = project.property("checkCategory").toString()
 		def checkName = project.property("checkName").toString()
-		println("Run lint on this module with\ngradlew :${checkCategory}:${checkName}:lint")
+		def module = ":${checkCategory}:${checkName}"
+		println("Run lint on this module with\ngradlew ${module}:cleanLint ${module}:lint")
 	}
 }
