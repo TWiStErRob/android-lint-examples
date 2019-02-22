@@ -1,5 +1,6 @@
 buildscript {
 	repositories {
+		mavenLocal()
 		google()
 		jcenter()
 		maven { name = 'TWiStErRob'; url = 'https://dl.bintray.com/twisterrob/maven' }
@@ -8,7 +9,7 @@ buildscript {
 	dependencies {
 		classpath "com.android.tools.build:gradle:${VERSION_AGP}"
 		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${VERSION_KOTLIN}"
-		classpath "net.twisterrob.gradle:twister-quality:0.8"
+		classpath "net.twisterrob.gradle:twister-quality:0.9-SNAPSHOT"
 	}
 }
 
