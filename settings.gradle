@@ -29,6 +29,7 @@ include ':Internationalization:ByteOrderMark'
 include ':Internationalization:ConstantLocale'
 include ':Internationalization:EnforceUTF8'
 include ':Internationalization:HardcodedText'
+include ':Internationalization:RelativeOverlap'
 include ':Internationalization:SetTextI18n'
 
 include ':Accessibility'
