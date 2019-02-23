@@ -27,6 +27,7 @@ include ':Internationalization'
 
 include ':Accessibility'
 include ':Accessibility:ClickableViewAccessibility'
+include ':Accessibility:ContentDescription'
 include ':Accessibility:GetContentDescriptionOverride'
 
 include ':Lint'
