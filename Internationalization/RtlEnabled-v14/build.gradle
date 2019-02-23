@@ -1,0 +1,9 @@
+apply from: rootProject.file('gradle/module-check-lib.gradle')
+
+android.defaultConfig.targetSdkVersion 14
+
+expectedViolationCount(2)
+
+// REPORT RtlDetector.ENABLED briefDescription doesn't make sense for wrong attribute
+// REPORT false positive: wrongly located android:supportsRtl="true" is considered as "RTL enabled"
+// consequence: "You must set `android:targetSdkVersion`" false positive when supportsRtl is wrong

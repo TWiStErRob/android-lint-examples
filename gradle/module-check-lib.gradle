@@ -56,7 +56,7 @@ def lintVerifyCount = tasks.register("lintVerifyCount") { task ->
 	task.inputs.file(report)
 	// dummy output that will never change, but this keeps the task up to date when inputs unchanged
 	task.outputs.file("${buildDir}/reports/lint-checked.txt")
-	def checkName = project.name
+	def checkName = project.name.replaceAll(/-.*/, '')
 	doLast {
 		def expectedViolationCount = ext.expectedViolationCount
 		def numberOfIssues = report.text.count("<issue\n")
