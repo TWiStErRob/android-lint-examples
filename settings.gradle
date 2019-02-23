@@ -30,5 +30,6 @@ include ':Accessibility:ClickableViewAccessibility'
 include ':Accessibility:ContentDescription'
 include ':Accessibility:GetContentDescriptionOverride'
 include ':Accessibility:KeyboardInaccessibleWidget'
+include ':Accessibility:LabelFor'
 
 include ':Lint'

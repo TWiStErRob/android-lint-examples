@@ -1,0 +1,26 @@
+<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:orientation="vertical"
+		>
+
+	<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:labelFor="@id/edit"
+			/>
+
+	<EditText
+			android:id="@+id/edit"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:inputType="none"
+			android:hint="enter something"
+			tools:ignore="HardcodedText"
+			>
+		<!-- lint:HardcodedText irrelevant for this violation -->
+	</EditText>
+
+</LinearLayout>
