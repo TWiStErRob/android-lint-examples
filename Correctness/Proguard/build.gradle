@@ -1,0 +1,15 @@
+apply from: rootProject.file('gradle/module-check-lib.gradle')
+
+android.defaultConfig.proguardFile(file("proguard.pro"))
+
+expectedViolationCount(0)
+// REPORT Scope.PROGUARD_FILE doesn't do anything (3.3.1, 26.3.1),
+// because com.android.tools.lint.gradle.LintGradleProject.AppGradleProject.getProguardFiles
+// uses mProject: com.android.build.gradle.internal.ide.DefaultAndroidProject
+// whose defaultConfig and variants are
+// com.android.build.gradle.internal.ide.ProductFlavorImpl
+// com.android.build.gradle.internal.ide.VariantImpl
+// which inherit com.android.build.gradle.internal.ide.BaseConfigImpl's
+// public List<File> getProguardFiles() { return Collections.emptyList(); }
+// public List<File> getConsumerProguardFiles() { return Collections.emptyList(); }
+// methods.
