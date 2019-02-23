@@ -17,6 +17,7 @@ include ':Correctness:UniqueConstants'
 include ':Correctness:WrongViewCast'
 
 include ':Usability'
+include ':Usability:BackButton'
 include ':Usability:ButtonOrder'
 include ':Usability:SelectableText'
 
