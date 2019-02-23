@@ -24,6 +24,7 @@ include ':Performance'
 include ':Performance:SyntheticAccessor'
 
 include ':Internationalization'
+include ':Internationalization:ByteOrderMark'
 
 include ':Accessibility'
 include ':Accessibility:ClickableViewAccessibility'

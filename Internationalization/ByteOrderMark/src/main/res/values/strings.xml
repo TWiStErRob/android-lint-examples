@@ -1,0 +1,11 @@
+<resources>
+
+	<!--
+	There is no BOM, because it would give:
+	Execution failed for task ':Internationalization:ByteOrderMark:packageDebugResources'.
+	Error: An invalid XML character (Unicode: 0xfffe) was found in the CDATA section.
+	-->
+	<string name="bom"><![CDATA[There is no byte order mark here]]></string>
+	<string name="zero_width_non_breaking_space"><![CDATA[There is a zero-width non-breaking space here >﻿<]]></string>
+
+</resources>

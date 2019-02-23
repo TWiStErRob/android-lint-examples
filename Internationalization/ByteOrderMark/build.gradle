@@ -1,0 +1,11 @@
+apply from: rootProject.file('gradle/module-check-lib.gradle')
+
+android.defaultConfig.consumerProguardFile(file('proguard.pro'))
+
+// There is a byte order mark here >￾<
+// There is a zero-width non-breaking space here >﻿<
+
+expectedViolationCount(6)
+
+// REPORT ByteOrderMarkDetector has duplicate Java scope (26.3.1)
+// REPORT ProGuard file is not recognized (expected count should be +1)

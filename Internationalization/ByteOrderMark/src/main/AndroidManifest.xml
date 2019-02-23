@@ -1,0 +1,13 @@
+<manifest package="net.twisterrob.lints.internationalization.ByteOrderMark">
+
+	<!--
+	There is no BOM here, because it would give:
+	Execution failed for task ':Internationalization:ByteOrderMark:generateDebugBuildConfig'.
+	> org.xml.sax.SAXParseException
+	systemId: file:/.../Internationalization/ByteOrderMark/src/main/AndroidManifest.xml
+	An invalid XML character (Unicode: 0xfffe) was found in the comment.
+	-->
+
+	<!-- There is a zero-width non-breaking space here >﻿< -->
+
+</manifest>
