@@ -22,6 +22,7 @@ include ':Usability:ButtonCase'
 include ':Usability:ButtonOrder'
 include ':Usability:ButtonStyle'
 include ':Usability:SelectableText'
+include ':Usability:ViewConstructor'
 
 include ':Security'
 include ':Security:EasterEgg'
