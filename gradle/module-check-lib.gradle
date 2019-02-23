@@ -14,6 +14,9 @@ android {
 		it.checkAllWarnings = !onlySpecific
 		if (onlySpecific) {
 			it.check project.name
+		} else {
+			// com.android.tools.lint.LintCliClient.CliConfiguration.getDefaultSeverity disables this by default
+			it.enable('WrongThreadInterprocedural')
 		}
 		it.checkTestSources = true
 		it.explainIssues = true
