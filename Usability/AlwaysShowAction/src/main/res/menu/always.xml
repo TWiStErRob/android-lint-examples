@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<item
+			android:showAsAction="always"
+			android:title="@android:string/untitled" />
+
+	<item
+			android:showAsAction="always"
+			android:title="@android:string/unknownName" />
+
+</menu>
