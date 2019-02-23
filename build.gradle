@@ -23,8 +23,11 @@ tasks.register("createModule") {
 	}
 
 	doFirst {
-		def checkCategory = project.property("checkCategory").toString()
-		def checkName = project.property("checkName").toString()
+		ext.checkCategory = project.property("checkCategory").toString()
+		ext.checkName = project.property("checkName").toString()
+	}
+
+	doLast {
 		def packageName = "net.twisterrob.lints.${checkCategory.toLowerCase()}"
 		def module = project(":${checkCategory}").file(checkName)
 
@@ -70,9 +73,24 @@ tasks.register("createModule") {
 	}
 
 	doLast {
-		def checkCategory = project.property("checkCategory").toString()
-		def checkName = project.property("checkName").toString()
 		def module = ":${checkCategory}:${checkName}"
 		println("Run lint on this module with\ngradlew ${module}:cleanLint ${module}:lint")
+	}
+
+	doLast {
+		def reportFile = file("${checkCategory}/${checkName}/build/reports/lint-results.html")
+		def reportDir = reportFile.parentFile
+		if (!reportFile.exists() && reportDir.mkdirs() && reportDir.isDirectory()) {
+			reportFile.text = "refresh after running lint"
+		}
+		//noinspection UnnecessaryQualifiedReference
+		OperatingSystem os = org.gradle.nativeplatform.platform.internal.DefaultNativePlatform.currentOperatingSystem
+		if (os.isWindows()) {
+			Runtime.runtime.exec(["cmd.exe", "/c", reportFile.absolutePath] as String[]).waitFor()
+		} else if (os.isMacOsX()) {
+			Runtime.runtime.exec(["open", reportFile.absolutePath] as String[]).waitFor()
+		} else {
+			// no action, don't know how to open a link
+		}
 	}
 }
