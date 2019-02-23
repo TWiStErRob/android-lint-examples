@@ -17,6 +17,7 @@ include ':Correctness:UniqueConstants'
 include ':Correctness:WrongViewCast'
 
 include ':Usability'
+include ':Usability:ButtonOrder'
 
 include ':Security'
 include ':Security:EasterEgg'
