@@ -67,6 +67,9 @@ tasks.register("createModule") {
 		def insertIndex = lines.findIndexOf(currentIndex) {
 			currentIndex++ < categoryEndIndex && (it == "" || includeLine < it)
 		}
+		if (insertIndex == -1) {
+			insertIndex = currentIndex
+		}
 		lines.add(insertIndex, includeLine)
 		settingsGradle.text = lines.join(System.lineSeparator()) + System.lineSeparator()
 		gitAdd(settingsGradle)
