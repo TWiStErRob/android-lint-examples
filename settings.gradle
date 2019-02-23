@@ -51,3 +51,4 @@ include ':Accessibility:KeyboardInaccessibleWidget'
 include ':Accessibility:LabelFor'
 
 include ':Lint'
+include ':Lint:LintBaseline'

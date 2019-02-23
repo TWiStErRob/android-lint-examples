@@ -1,1 +1,9 @@
 apply from: rootProject.file('gradle/module-category.gradle')
+
+// REPORT when there's a StopShip in the baseline, the baseline gives a false positive
+// * add comment in Java
+// * remove baseline file
+// * run lint (creates baseline)
+// * run lint again:
+// Expected: Lint found no errors or warnings (1 error filtered by baseline lint-baseline.xml)
+// Actual: 1 errors/warnings were listed in the baseline file (...) but not found in the project; perhaps they have been fixed?
