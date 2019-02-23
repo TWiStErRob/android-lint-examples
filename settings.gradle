@@ -36,6 +36,7 @@ include ':Interoperability'
 include ':Interoperability:KotlinPropertyAccess'
 include ':Interoperability:LambdaLast'
 include ':Interoperability:NoHardKeywords'
+include ':Interoperability:UnknownNullness'
 
 include ':Accessibility'
 include ':Accessibility:ClickableViewAccessibility'
