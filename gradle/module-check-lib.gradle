@@ -28,6 +28,11 @@ android {
 	}
 }
 
+afterEvaluate {
+	project.tasks.named('generateDebugBuildConfig').configure { enabled = false }
+	project.tasks.named('generateReleaseBuildConfig').configure { enabled = false }
+}
+
 repositories {
 	google()
 	jcenter()
