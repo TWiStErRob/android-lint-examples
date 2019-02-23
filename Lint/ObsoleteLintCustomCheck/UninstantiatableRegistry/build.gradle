@@ -1,3 +1,0 @@
-apply from: rootProject.file('gradle/module-custom-check.gradle')
-
-lintRegistry('net.twisterrob.lints.lint.UninstantiatableRegistry')
