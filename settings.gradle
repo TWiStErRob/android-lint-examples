@@ -34,6 +34,7 @@ include ':Internationalization:SetTextI18n'
 
 include ':Interoperability'
 include ':Interoperability:KotlinPropertyAccess'
+include ':Interoperability:LambdaLast'
 
 include ':Accessibility'
 include ':Accessibility:ClickableViewAccessibility'
