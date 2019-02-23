@@ -35,6 +35,7 @@ configurations {
 dependencies {
 	//implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${props.VERSION_KOTLIN}"
 
-	//sourcesOnly "com.android.tools.build:gradle:${props.VERSION_AGP}"
+	sourcesOnly "com.android.tools.build:gradle:${props.VERSION_AGP}"
 	sourcesOnly "com.android.tools.lint:lint:${Version.ANDROID_TOOLS_BASE_VERSION}"
+	sourcesOnly "com.android.tools.lint:lint-gradle:${Version.ANDROID_TOOLS_BASE_VERSION}"
 }
