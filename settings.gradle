@@ -18,6 +18,7 @@ include ':Correctness:WrongViewCast'
 
 include ':Usability'
 include ':Usability:BackButton'
+include ':Usability:ButtonCase'
 include ':Usability:ButtonOrder'
 include ':Usability:ButtonStyle'
 include ':Usability:SelectableText'

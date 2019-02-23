@@ -1,0 +1,6 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+	<string name="ok" tools:ignore="Typos">ok</string>
+	<string name="cancel">cancel</string>
+
+</resources>
