@@ -1,0 +1,23 @@
+apply from: rootProject.file('gradle/module-check-lib.gradle')
+
+// Couldn't find a way to make this fail, because there are no usages of
+// com.android.tools.lint.LintCliXmlParser.parseXml(XmlContext)
+// which is the only source of ParserError I found.
+expectedViolationCount(0)
+// below should still fail somewhat, but parse error from parseXml(String) is ignored
+
+// Break a file after compilation, just for lint, and then restore it.
+tasks.named('lint').configure {
+	def original = file('src/main/res/xml/broken.xml')
+	def backup = new File(original.parentFile, original.name + ".backup")
+	doFirst {
+		println("Breaking file")
+		original.renameTo(backup)
+		original.text = "<"
+	}
+	doLast {
+		println("Restoring file")
+		original.delete()
+		backup.renameTo(original)
+	}
+}
