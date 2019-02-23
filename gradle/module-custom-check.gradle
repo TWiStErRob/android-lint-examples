@@ -1,0 +1,33 @@
+import com.android.builder.model.Version
+
+buildscript {
+	repositories {
+		google()
+	}
+	dependencies {
+		// to be able to access com.android.builder.model.Version artifact
+		classpath "com.android.tools.build:builder-model:${VERSION_AGP}"
+	}
+}
+
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+
+repositories {
+	google()
+	jcenter()
+}
+
+dependencies {
+	def lintVersion = Version.ANDROID_TOOLS_BASE_VERSION
+	compileOnly "com.android.tools.lint:lint-api:${lintVersion}"
+	compileOnly "com.android.tools.lint:lint-checks:${lintVersion}"
+}
+
+ext.lintRegistry = { String fqcn ->
+	jar {
+		manifest {
+			attributes("Lint-Registry-v2": fqcn)
+		}
+	}
+}
