@@ -30,6 +30,7 @@ include ':Internationalization:ConstantLocale'
 include ':Internationalization:EnforceUTF8'
 include ':Internationalization:HardcodedText'
 include ':Internationalization:RelativeOverlap'
+include ':Internationalization:RtlCompat'
 include ':Internationalization:SetTextI18n'
 
 include ':Interoperability'
