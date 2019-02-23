@@ -18,6 +18,7 @@ include ':Correctness:WrongViewCast'
 
 include ':Usability'
 include ':Usability:ButtonOrder'
+include ':Usability:SelectableText'
 
 include ':Security'
 include ':Security:EasterEgg'
