@@ -27,6 +27,7 @@ include ':Performance:SyntheticAccessor'
 include ':Internationalization'
 include ':Internationalization:ByteOrderMark'
 include ':Internationalization:ConstantLocale'
+include ':Internationalization:HardcodedText'
 
 include ':Accessibility'
 include ':Accessibility:ClickableViewAccessibility'
