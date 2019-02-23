@@ -1,0 +1,7 @@
+<resources>
+
+	<style name="NegativeMargin">
+		<item name="android:layout_margin">-1dp</item>
+	</style>
+
+</resources>
