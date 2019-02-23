@@ -1,0 +1,8 @@
+<resources>
+
+	<style name="SmallSp">
+		<!-- REPORT android:textSize is not supported -->
+		<item name="textSize">6sp</item>
+	</style>
+
+</resources>
