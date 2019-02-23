@@ -1,7 +1,11 @@
 <EditText
 		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		android:inputType="none"
 		android:hint=""
-		/>
+		android:inputType="none"
+		tools:ignore="AutoFill"
+		>
+	<!-- lint:AutoFill irrelevant for this violation -->
+</EditText>
