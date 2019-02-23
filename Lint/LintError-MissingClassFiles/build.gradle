@@ -1,0 +1,6 @@
+apply from: rootProject.file('gradle/module-check-lib.gradle')
+
+// No source files in the project
+
+// Duh, com.android.tools.lint.gradle.LintGradleClient.report explicitly excludes this error
+expectedViolationCount(0)
