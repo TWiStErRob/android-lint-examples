@@ -52,3 +52,4 @@ include ':Accessibility:LabelFor'
 
 include ':Lint'
 include ':Lint:LintBaseline'
+include ':Lint:LintCanceled'

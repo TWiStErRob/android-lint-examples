@@ -1,0 +1,5 @@
+apply from: rootProject.file('gradle/module-check-lib.gradle')
+
+// REPORT this cannot be reproduced because LintDriver.checkProject is full of returns instead of breaks
+// probably the result of Kotlin conversion
+expectedViolationCount(0)
