@@ -1,0 +1,3 @@
+apply from: rootProject.file('gradle/module-check-lib.gradle')
+
+expectedViolationCount(3 /*java*/ + 3 /*kotlin*/) // should be 3+4 see .kt
