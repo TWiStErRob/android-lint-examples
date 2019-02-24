@@ -1,3 +1,22 @@
 apply from: rootProject.file('gradle/module-check-lib.gradle')
 
 expectedViolationCount(2)
+
+// Prevent
+/*
+Execution failed for task ':Correctness:StringEscaping:verifyReleaseResources'.
+java.util.concurrent.ExecutionException: com.android.builder.internal.aapt.v2.Aapt2Exception:
+    Android resource compilation failed
+Correctness/StringEscaping/build/intermediates/res/merged/release/values/values.xml:3:
+    error: unescaped apostrophe in string "Hello' World".
+Correctness/StringEscaping/build/intermediates/res/merged/release/values/values.xml:3:
+    error: not a valid string.
+Correctness/StringEscaping/build/intermediates/res/merged/release/values/values.xml:4:
+    error: invalid unicode escape sequence in string "Unicode: \\uinvalid".
+Correctness/StringEscaping/build/intermediates/res/merged/release/values/values.xml:4:
+    error: not a valid string.
+ */
+// because that's the point of this module, but let's allow the whole project to build successfully.
+afterEvaluate {
+	project.tasks.named('verifyReleaseResources').configure { it.enabled = false }
+}
