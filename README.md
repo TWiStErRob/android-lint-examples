@@ -1,5 +1,7 @@
 Project that reproduces every lint violation out there.
 
+_See [`settings.gradle`](settings.gradle) for list of lint checks added in the project._
+
 Goals
 -----
 
