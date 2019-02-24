@@ -17,6 +17,7 @@ include ':Correctness:UniqueConstants'
 include ':Correctness:WrongViewCast'
 
 include ':Usability'
+include ':Usability:AllCaps'
 include ':Usability:AlwaysShowAction'
 include ':Usability:Autofill'
 include ':Usability:BackButton'
