@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+
+	<string name="typography_fraction_1_2">1/2 should be ½</string>
+	<string name="typography_fraction_1_3">1/3 should be ⅓</string>
+	<string name="typography_fraction_1_4">1/4 should be ¼</string>
+	<!-- REPORT TypographyDetector.FRACTION_PATTERN is missing 2 from the nominator -->
+	<string name="typography_fraction_2_3">2/3 should be ⅔</string>
+	<string name="typography_fraction_3_4">3/4 should be ¾</string>
+	<!-- REPORT there are many other fractions in Unicode: http://unicodefractions.com/ -->
+	<!-- REPORT TypographyCustomFractions? we can create our own using ⁰¹²³⁴⁵⁶⁷⁸⁹⁄₀₁₂₃₄₅₆₇₈₉ -->
+
+</resources>
