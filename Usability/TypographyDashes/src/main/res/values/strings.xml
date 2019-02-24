@@ -1,0 +1,9 @@
+<resources>
+
+	<string name="range">Ages 2-5</string>
+	<string name="thought_mark">This -- as other lints -- is a violation.</string>
+
+	<!-- REPORT HYPHEN_RANGE_PATTERN should be while(matcher.find()) without `.*`, not matches()-->
+	<string name="range_after_negative">1 - 2 and 3-4 should trigger, but not 5 -6</string>
+
+</resources>

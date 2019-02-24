@@ -29,6 +29,7 @@ include ':Usability:NegativeMargin'
 include ':Usability:SelectableText'
 include ':Usability:SmallSp'
 include ':Usability:TextFields'
+include ':Usability:TypographyDashes'
 include ':Usability:ViewConstructor'
 
 include ':Security'
