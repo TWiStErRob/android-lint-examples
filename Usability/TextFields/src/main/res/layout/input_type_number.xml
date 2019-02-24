@@ -1,0 +1,12 @@
+<EditText
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:id="@+id/number"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:inputType="text"
+		tools:ignore="AutoFill,LabelFor"
+		>
+	<!-- lint:AutoFill irrelevant for this violation -->
+	<!-- lint:LabelFor irrelevant for this violation -->
+</EditText>
