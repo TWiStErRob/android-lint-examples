@@ -1,0 +1,38 @@
+import org.gradle.api.artifacts.ArtifactView
+
+buildscript {
+	repositories {
+		google()
+		jcenter()
+	}
+	dependencies {
+		classpath 'com.jakewharton:butterknife-gradle-plugin:10.1.0'
+	}
+}
+
+apply from: rootProject.file('gradle/module-check-lib.gradle')
+apply plugin: 'com.jakewharton.butterknife'
+
+expectedViolationCount(2)
+
+dependencies {
+	implementation 'com.jakewharton:butterknife:10.1.0'
+	annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
+	// a hack to get access to InvalidR2UsageDetector for source and debugging
+	afterEvaluate { compileOnly lintJars(project) }
+}
+
+// based on com.android.build.gradle.internal.scope.VariantScopeImpl.computeArtifactCollection
+static def lintJars(Project project) {
+	Configuration configuration = project.configurations.debugRuntimeClasspath
+	Action<ArtifactView.ViewConfiguration> view = { config ->
+		config.attributes { container ->
+			container.attribute(Attribute.of("artifactType", String.class), "android-lint")
+		}
+	}
+	return configuration
+			.getIncoming()
+			.artifactView(view)
+			.artifacts
+			.artifactFiles
+}
