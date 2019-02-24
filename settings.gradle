@@ -33,6 +33,7 @@ include ':Usability:TypographyDashes'
 include ':Usability:TypographyEllipsis'
 include ':Usability:TypographyFractions'
 include ':Usability:TypographyOther'
+include ':Usability:TypographyQuotes'
 include ':Usability:ViewConstructor'
 
 include ':Security'

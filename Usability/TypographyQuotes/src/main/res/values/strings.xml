@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+
+	<!-- REPORT doesn't support mandatory-escaped apostrophes -->
+	<string name="apostrophe_escaped">apostrophe\' should be typographical apostrophe’</string>
+	<!-- workaround for the above -->
+	<string name="apostrophe">"apostrophe' should be typographical apostrophe’"</string>
+	<string name="quote">\'apostrophe\' should be ‘directional quote’</string>
+	<!-- REPORT '' (as opposed to ") should be suggesting double quotes -->
+	<string name="two_quote">\'\'double apostrophe\'\' should be “directional quotes“</string>
+	<string name="double_quote">"double quote" should be “directional quotes”</string>
+	<string name="grave">`grave quote\' should be ‘quotes’</string>
+	<!-- REPORT wrong message, doesn't get to GRAVE_QUOTATION, because there are two apostrophes -->
+	<!-- REPORT even if it got there, it would be the wrong suggestion, because it's not suggesting double quotes -->
+	<string name="grave_double">``grave double quote\'\' should be “directional quotes”</string>
+	<!-- REPORT GRAVE_QUOTATION comment in code says "indenting" instead of "quoting" -->
+
+</resources>
