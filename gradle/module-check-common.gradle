@@ -1,0 +1,91 @@
+apply plugin: 'kotlin-android'
+
+android {
+	compileSdkVersion 28
+
+	defaultConfig {
+		minSdkVersion 14
+		targetSdkVersion 28
+	}
+
+	lintOptions {
+		boolean onlySpecific = project.property("lints.check.only.specific").toBoolean()
+		it.abortOnError = false
+		it.checkAllWarnings = !onlySpecific
+		if (onlySpecific) {
+			it.check project.name
+		} else {
+			// com.android.tools.lint.LintCliClient.CliConfiguration.getDefaultSeverity disables this by default
+			it.enable('WrongThreadInterprocedural')
+		}
+		it.checkTestSources = true
+		it.explainIssues = true
+		it.showAll = true
+		it.checkReleaseBuilds = false
+		it.checkGeneratedSources = false
+		it.checkDependencies = false
+	}
+}
+
+repositories {
+	google()
+	jcenter()
+}
+
+dependencies {
+	implementation "androidx.annotation:annotation:1.0.1"
+	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${VERSION_KOTLIN}"
+
+	testImplementation "junit:junit:4.12"
+	testImplementation "org.jetbrains.kotlin:kotlin-test-junit:${VERSION_KOTLIN}"
+}
+
+project.ext.expectedViolationCount = { count ->
+	tasks.named("lintVerifyCount").configure { task ->
+		task.ext.expectedViolationCount = count
+		task.inputs.property("expectedViolationCount", expectedViolationCount)
+	}
+}
+
+def lintVerifyCount = tasks.register("lintVerifyCount") { task ->
+	// configure with expectedViolationCount(3)
+	ext.expectedViolationCount = 1
+	task.inputs.property("expectedViolationCount", expectedViolationCount)
+	File report = android.lintOptions.xmlOutput ?: file("${buildDir}/reports/lint-results.xml")
+	task.inputs.file(report)
+	// dummy output that will never change, but this keeps the task up to date when inputs unchanged
+	task.outputs.file("${buildDir}/reports/lint-checked.txt")
+	def checkName = project.name.replaceAll(/-.*/, '')
+	doLast {
+		def expectedViolationCount = ext.expectedViolationCount
+		def numberOfIssues = report.text.count("<issue\n")
+		def numberOfViolations = report.text.count("id=\"${checkName}\"")
+		//println("${checkName}: ${expectedViolationCount} == ${numberOfViolations}/${numberOfIssues}")
+		if (numberOfViolations < numberOfIssues) {
+			throw new GradleException(
+					"There were ${numberOfIssues} issues in ${project}, " +
+							"but not all of them were ${checkName}")
+		}
+		if (numberOfViolations != expectedViolationCount) {
+			throw new GradleException(
+					"Expected ${expectedViolationCount}, " +
+							"but there were ${numberOfViolations} ${checkName} reported.")
+		}
+	}
+}
+
+def debugging = project.findProperty("org.gradle.debug")?.toBoolean() == true
+
+tasks.configureEach { Task task ->
+	if (task.name == "lint" && !debugging) {
+		task.inputs.files(android.sourceSets.collectMany { it.java.srcDirs })
+		task.inputs.files(android.sourceSets.collectMany { it.kotlin.srcDirs })
+		task.inputs.files(android.sourceSets.collectMany { it.res.srcDirs })
+
+		task.outputs.file(android.lintOptions.xmlOutput ?: "${buildDir}/reports/lint-results.xml")
+		task.outputs.file(android.lintOptions.htmlOutput ?: "${buildDir}/reports/lint-results.html")
+		task.outputs.file(android.lintOptions.textOutput ?: "${buildDir}/reports/lint-results.txt")
+
+		task.finalizedBy(lintVerifyCount)
+	}
+}
