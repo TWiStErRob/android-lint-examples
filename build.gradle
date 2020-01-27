@@ -60,17 +60,26 @@ tasks.register("createModule") {
 
 		def settingsGradle = rootProject.file("settings.gradle")
 		def lines = settingsGradle.text.split(/\r?\n/).toList()
-		def categoryStartIndex = lines.findIndexOf { it == "include ':${checkCategory}'" }
-		def categoryEndIndex = lines.findIndexOf(categoryStartIndex + 1) { it.count(":") == 1 }
 		def includeLine = "include ':${checkCategory}:${checkName}'"
-		def currentIndex = categoryStartIndex + 1
-		def insertIndex = lines.findIndexOf(currentIndex) {
-			currentIndex++ < categoryEndIndex && (it == "" || includeLine < it)
+		def commentedLineIndex = lines.indexOf("//$includeLine".toString()) // otherwise GString !=
+		if (commentedLineIndex != -1) {
+			logger.info("Uncommenting include in settings.gradle: $includeLine.")
+			lines.set(commentedLineIndex, includeLine)
+		} else {
+			def categoryStartIndex = lines.findIndexOf { it == "include ':${checkCategory}'" }
+			def categoryEndIndex = lines.findIndexOf(categoryStartIndex + 1) { it.count(":") == 1 }
+			def currentIndex = categoryStartIndex + 1
+			logger.info("Found Category at $categoryStartIndex until $categoryEndIndex.")
+			def insertIndex = lines.findIndexOf(currentIndex) {
+				currentIndex++ < categoryEndIndex && (it == "" || includeLine < it)
+			}
+			if (insertIndex == -1) {
+				logger.info("Couldn't find sorted location for $includeLine, inserting after ${lines[currentIndex - 1]}.")
+				insertIndex = currentIndex
+			}
+			logger.info("Inserting include $includeLine after ${lines[insertIndex - 1]}.")
+			lines.add(insertIndex, includeLine)
 		}
-		if (insertIndex == -1) {
-			insertIndex = currentIndex
-		}
-		lines.add(insertIndex, includeLine)
 		settingsGradle.text = lines.join(System.lineSeparator()) + System.lineSeparator()
 		gitAdd(settingsGradle)
 	}
