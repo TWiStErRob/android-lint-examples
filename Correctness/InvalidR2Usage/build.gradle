@@ -1,12 +1,13 @@
 import org.gradle.api.artifacts.ArtifactView
 
 buildscript {
+	ext.butterknife_version = '10.2.1'
 	repositories {
 		google()
 		jcenter()
 	}
 	dependencies {
-		classpath 'com.jakewharton:butterknife-gradle-plugin:10.1.0'
+		classpath "com.jakewharton:butterknife-gradle-plugin:${butterknife_version}"
 	}
 }
 
@@ -16,8 +17,8 @@ apply plugin: 'com.jakewharton.butterknife'
 expectedViolationCount(2)
 
 dependencies {
-	implementation 'com.jakewharton:butterknife:10.1.0'
-	annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
+	implementation "com.jakewharton:butterknife:${butterknife_version}"
+	annotationProcessor "com.jakewharton:butterknife-compiler:${butterknife_version}"
 	// a hack to get access to InvalidR2UsageDetector for source and debugging
 	afterEvaluate { compileOnly lintJars(project) }
 }
