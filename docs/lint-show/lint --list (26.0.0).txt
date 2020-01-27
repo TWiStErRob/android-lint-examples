@@ -1,0 +1,344 @@
+Valid issue categories:
+    Correctness
+    Correctness:Messages
+    Correctness:Chrome OS
+    Security
+    Performance
+    Usability:Typography
+    Usability:Icons
+    Usability
+    Accessibility
+    Internationalization
+    Internationalization:Bidirectional Text
+
+Valid issue id's:
+"ContentDescription": Image without contentDescription
+"AddJavascriptInterface": addJavascriptInterface Called
+"ShortAlarm": Short or Frequent Alarm
+"AllCaps": Combining textAllCaps and markup
+"AllowAllHostnameVerifier": Insecure HostnameVerifier
+"AlwaysShowAction": Usage of showAsAction=always
+"InvalidUsesTagAttribute": Invalid name attribute for uses element.
+"MissingIntentFilterForMediaSearch": Missing intent-filter with action
+      android.media.action.MEDIA_PLAY_FROM_SEARCH
+"MissingMediaBrowserServiceIntentFilter": Missing intent-filter with action
+      android.media.browse.MediaBrowserService.
+"MissingOnPlayFromSearch": Missing onPlayFromSearch.
+"ImpliedTouchscreenHardware": Hardware feature touchscreen not explicitly
+      marked as optional
+"MissingTvBanner": TV Missing Banner
+"MissingLeanbackLauncher": Missing Leanback Launcher Intent Filter.
+"MissingLeanbackSupport": Missing Leanback Support.
+"PermissionImpliesUnsupportedHardware": Permission Implies Unsupported
+      Hardware
+"UnsupportedTvHardware": Unsupported TV Hardware Feature
+"SupportAnnotationUsage": Incorrect support annotation usage
+"ShiftFlags": Dangerous Flag Constant Declaration
+"LocalSuppress": @SuppressLint on invalid element
+"SwitchIntDef": Missing @IntDef in Switch
+"UniqueConstants": Overlapping Enumeration Constants
+"InlinedApi": Using inlined constants on older versions
+"Override": Method conflicts with new inherited method
+"ObsoleteSdkInt": Obsolete SDK_INT Version Check
+"NewApi": Calling new methods on older versions
+"UnusedAttribute": Attribute unused on older versions
+"AppCompatMethod": Using Wrong AppCompat Method
+"AppCompatCustomView": Appcompat Custom Widgets
+"AppCompatResource": Menu namespace
+"GoogleAppIndexingApiWarning": Missing support for Firebase App Indexing Api
+"GoogleAppIndexingWarning": Missing support for Firebase App Indexing
+"AppLinksAutoVerifyError": App Links Auto Verification Failure
+"AppLinksAutoVerifyWarning": Potential App Links Auto Verification Failure
+"AppLinkUrlError": URL not supported by app for Firebase App Indexing
+"TestAppLink": Unmatched URLs
+"InconsistentArrays": Inconsistencies in array element counts
+"Assert": Assertions
+"BadHostnameVerifier": Insecure HostnameVerifier
+"BatteryLife": Battery Life Issues
+"BackButton": Back button
+"ButtonCase": Cancel/OK dialog button capitalization
+"ButtonOrder": Button order
+"ButtonStyle": Button should be borderless
+"ByteOrderMark": Byte order mark inside files
+"MissingSuperCall": Missing Super Call
+"AdapterViewChildren": AdapterViews cannot have children in XML
+"ScrollViewCount": ScrollViews can have only one child
+"PermissionImpliesUnsupportedChromeOsHardware": Permission Implies Unsupported
+      Chrome OS Hardware
+"UnsupportedChromeOsHardware": Unsupported Chrome OS Hardware Feature
+"GetInstance": Cipher.getInstance with ECB
+"CommitTransaction": Missing commit() calls
+"Recycle": Missing recycle() calls
+"CommitPrefEdits": Missing commit() on SharedPreference editor
+"ApplySharedPref": Use apply() on SharedPreferences
+"ClickableViewAccessibility": Accessibility in Custom Views
+"EasterEgg": Code contains easter egg
+"StopShip": Code contains STOPSHIP marker
+"MissingConstraints": Missing Constraints in ConstraintLayout
+"VulnerableCordovaVersion": Vulnerable Cordova Version
+"CustomViewStyleable": Mismatched Styleable/Custom View Name
+"CutPasteId": Likely cut & paste mistakes
+"SimpleDateFormat": Implied locale in date format
+"SetTextI18n": TextView Internationalization
+"Deprecated": Using deprecated resources
+"MissingPrefix": Missing Android XML namespace
+"MangledCRLF": Mangled file line endings
+"DuplicateIncludedIds": Duplicate ids across layouts combined with include
+      tags
+"DuplicateIds": Duplicate ids within a single layout
+"DuplicateDefinition": Duplicate definitions of resources
+"ReferenceType": Incorrect reference types
+"StringEscaping": Invalid string escapes
+"UnpackedNativeCode": Missing android:extractNativeLibs=false
+"UnsafeDynamicallyLoadedCode": load used to dynamically load code
+"UnsafeNativeCodeLocation": Native code outside library directory
+"EllipsizeMaxLines": Combining Ellipsize and Maxlines
+"ExifInterface": Using android.media.ExifInterface
+"ExtraText": Extraneous text in resource files
+"FieldGetter": Using getter instead of field
+"InvalidAnalyticsName": Invalid Analytics Name
+"MissingFirebaseInstanceTokenRefresh": Missing Firebase Instance ID Token
+      Refresh
+"FontValidationError": Validation of font files
+"FontValidationWarning": Validation of font files
+"FullBackupContent": Valid Full Backup Content File
+"ValidFragment": Fragment not instantiatable
+"GetContentDescriptionOverride": Overriding getContentDescription() on a View
+"PackageManagerGetSignatures": Potential Multiple Certificate Exploit
+"AccidentalOctal": Accidental Octal
+"UseOfBundledGooglePlayServices": Use of bundled version of Google Play
+      services
+"GradleCompatible": Incompatible Gradle Versions
+"GradleDependency": Obsolete Gradle Dependency
+"GradleDeprecated": Deprecated Gradle Construct
+"DevModeObsolete": Dev Mode Obsolete
+"DuplicatePlatformClasses": Duplicate Platform Classes
+"GradleGetter": Gradle Implicit Getter Call
+"GradlePluginVersion": Incompatible Android Gradle Plugin
+"HighAppVersionCode": VersionCode too high
+"GradleIdeError": Gradle IDE Support Issues
+"GradlePath": Gradle Path Issues
+"GradleDynamicVersion": Gradle Dynamic Version
+"NotInterpolated": Incorrect Interpolation
+"StringShouldBeInt": String should be int
+"NewerVersionAvailable": Newer Library Versions Available
+"MinSdkTooLow": API Version Too Low
+"GridLayout": GridLayout validation
+"HandlerLeak": Handler reference leaks
+"HardcodedDebugMode": Hardcoded value of android:debuggable in the manifest
+"HardcodedText": Hardcoded text
+"HardwareIds": Hardware Id Usage
+"IconDuplicatesConfig": Identical bitmaps across various configurations
+"IconDuplicates": Duplicated icons under different names
+"GifUsage": Using .gif format for bitmaps is discouraged
+"IconColors": Icon colors do not follow the recommended visual style
+"IconDensities": Icon densities validation
+"IconDipSize": Icon density-independent size validation
+"IconExpectedSize": Icon has incorrect size
+"IconExtension": Icon format does not match the file extension
+"IconLauncherShape": The launcher icon shape should use a distinct silhouette
+"IconLocation": Image defined in density-independent drawable folder
+"IconMissingDensityFolder": Missing density folder
+"IconMixedNinePatch": Clashing PNG and 9-PNG files
+"IconNoDpi": Icon appears in both -nodpi and dpi folders
+"IconXmlAndPng": Icon is specified both as .xml file and as a bitmap
+"ConvertToWebp": Convert to WebP
+"WebpUnsupported": WebP Unsupported
+"IncludeLayoutParam": Ignored layout params on include
+"DisableBaselineAlignment": Missing baselineAligned attribute
+"InefficientWeight": Inefficient layout weight
+"NestedWeights": Nested layout weights
+"Orientation": Missing explicit orientation
+"Suspicious0dp": Suspicious 0dp dimension
+"InstantApps": Instant App Issues
+"DuplicateDivider": Unnecessary Divider Copy
+"TrustAllX509TrustManager": Insecure TLS/SSL trust manager
+"InvalidImeActionId": Invalid imeActionId declaration
+"InvalidPackage": Package not included in Android
+"DrawAllocation": Memory allocations within drawing code
+"UseSparseArrays": HashMap can be replaced with SparseArray
+"UseValueOf": Should use valueOf instead of new
+"JavascriptInterface": Missing @JavascriptInterface on methods
+"JobSchedulerService": JobScheduler problems
+"KeyboardInaccessibleWidget": Keyboard inaccessible widget
+"LabelFor": Missing labelFor attribute
+"InconsistentLayout": Inconsistent Layouts
+"InflateParams": Layout Inflation without a Parent
+"StaticFieldLeak": Static Field Leaks
+"DefaultLocale": Implied default locale in case conversion
+"LocaleFolder": Wrong locale name
+"GetLocales": Locale crash
+"InvalidResourceFolder": Invalid Resource Folder
+"WrongRegion": Suspicious Language/Region Combination
+"UseAlpha2": Using 3-letter Codes
+"LogConditional": Unconditional Logging Calls
+"LongLogTag": Too Long Log Tags
+"LogTagMismatch": Mismatched Log Tags
+"AllowBackup": AllowBackup/FullBackupContent Problems
+"MissingApplicationIcon": Missing application icon
+"DeviceAdmin": Malformed Device Admin
+"DuplicateActivity": Activity registered more than once
+"DuplicateUsesFeature": Feature declared more than once
+"GradleOverrides": Value overridden by Gradle build script
+"IllegalResourceRef": Name and version must be integer or string, not
+      resource
+"MipmapIcons": Use Mipmap Launcher Icons
+"MockLocation": Using mock location provider in production
+"MultipleUsesSdk": Multiple <uses-sdk> elements in the manifest
+"ManifestOrder": Incorrect order of elements in manifest
+"MissingVersion": Missing application name/version
+"OldTargetApi": Target SDK attribute is not targeting latest version
+"UniquePermission": Permission names are not unique
+"UsesMinSdkAttributes": Minimum SDK and target SDK attributes not defined
+"WearableBindListener": Usage of Android Wear BIND_LISTENER is deprecated
+"WrongManifestParent": Wrong manifest parent
+"InvalidPermission": Invalid Permission Attribute
+"ManifestResource": Manifest Resource References
+"ManifestTypo": Typos in manifest tags
+"FloatMath": Using FloatMath instead of Math
+"MergeMarker": Code contains merge marker
+"MergeRootFrame": FrameLayout can be replaced with <merge> tag
+"IncompatibleMediaBrowserServiceCompatVersion": Obsolete version of
+      MediaBrowserServiceCompat
+"InnerclassSeparator": Inner classes should use $ rather than .
+"Instantiatable": Registered class is not instantiatable
+"MissingRegistered": Missing registered class
+"MissingId": Fragments should specify an id or tag
+"LibraryCustomView": Custom views in libraries should use res-auto-namespace
+"ResAuto": Hardcoded Package in Namespace
+"NamespaceTypo": Misspelled namespace declaration
+"UnusedNamespace": Unused namespace
+"NegativeMargin": Negative Margins
+"NestedScrolling": Nested scrolling widgets
+"NetworkSecurityConfig": Valid Network Security Config File
+"MissingBackupPin": Missing Backup Pin
+"PinSetExpiry": Validate <pin-set> expiration attribute
+"NfcTechWhitespace": Whitespace in NFC tech lists
+"UnlocalizedSms": SMS phone number missing country code
+"ObjectAnimatorBinding": Incorrect ObjectAnimator Property
+"AnimatorKeep": Missing @Keep for Animated Properties
+"ObsoleteLayoutParam": Obsolete layout params
+"OnClick": onClick method does not exist
+"Overdraw": Overdraw: Painting regions more than once
+"DalvikOverride": Method considered overridden by Dalvik
+"OverrideAbstract": Not overriding abstract methods on older platforms
+"ParcelCreator": Missing Parcelable CREATOR field
+"UnusedQuantity": Unused quantity translations
+"MissingQuantity": Missing quantity translation
+"ImpliedQuantity": Implied Quantities
+"ExportedPreferenceActivity": PreferenceActivity should not be exported
+"PrivateApi": Using Private APIs
+"PackagedPrivateKey": Packaged private key
+"PrivateResource": Using private resources
+"ProguardSplit": Proguard.cfg file contains generic Android rules
+"Proguard": Using obsolete ProGuard configuration
+"PropertyEscape": Incorrect property escapes
+"UsingHttp": Using HTTP instead of HTTPS
+"SpUsage": Using dp instead of sp for text sizes
+"InOrMmUsage": Using mm or in dimensions
+"PxUsage": Using 'px' dimension
+"SmallSp": Text size is too small
+"ParcelClassLoader": Default Parcel Class Loader
+"PendingBindings": Missing Pending Bindings
+"RecyclerView": RecyclerView Problems
+"Registered": Class is not registered in the manifest
+"RelativeOverlap": Overlapping items in RelativeLayout
+"RequiredSize": Missing layout_width or layout_height attributes
+"AaptCrash": Potential AAPT crash
+"ResourceCycle": Cycle in resource definitions
+"ResourceName": Resource with Wrong Prefix
+"ValidRestrictions": Invalid Restrictions Descriptor
+"RtlCompat": Right-to-left text compatibility issues
+"RtlEnabled": Using RTL attributes without enabling RTL support
+"RtlSymmetry": Padding and margin symmetry
+"RtlHardcoded": Using left/right instead of start/end attributes
+"ScrollViewSize": ScrollView size validation
+"SdCardPath": Hardcoded reference to /sdcard
+"SecureRandom": Using a fixed seed with SecureRandom
+"TrulyRandom": Weak RNG
+"ExportedContentProvider": Content provider does not require permission
+"ExportedReceiver": Receiver does not require permission
+"ExportedService": Exported service does not require permission
+"SetWorldReadable": File.setReadable() used to make file world-readable
+"SetWorldWritable": File.setWritable() used to make file world-writable
+"GrantAllUris": Content provider shares everything
+"WorldReadableFiles": openFileOutput() or similar call passing
+      MODE_WORLD_READABLE
+"WorldWriteableFiles": openFileOutput() or similar call passing
+      MODE_WORLD_WRITEABLE
+"ServiceCast": Wrong system service casts
+"WifiManagerLeak": WifiManager Leak
+"WifiManagerPotentialLeak": WifiManager Potential Leak
+"SetJavaScriptEnabled": Using setJavaScriptEnabled
+"SignatureOrSystemPermissions": signatureOrSystem permissions declared
+"SQLiteString": Using STRING instead of TEXT
+"SSLCertificateSocketFactoryCreateSocket": Insecure call to
+      SSLCertificateSocketFactory.createSocket()
+"SSLCertificateSocketFactoryGetInsecure": Call to
+      SSLCertificateSocketFactory.getInsecure()
+"StateListReachable": Unreachable state in a <selector>
+"AuthLeak": Code might contain an auth leak
+"StringFormatCount": Formatting argument types incomplete or inconsistent
+"StringFormatMatches": String.format string doesn't match the XML format
+      string
+"StringFormatInvalid": Invalid format string
+"PluralsCandidate": Potential Plurals
+"UseCheckPermission": Using the result of check permission calls
+"CheckResult": Ignoring results
+"ResourceAsColor": Should pass resolved color instead of resource id
+"MissingPermission": Missing Permissions
+"Range": Outside Range
+"ResourceType": Wrong Resource Type
+"RestrictedApi": Restricted API
+"WrongThread": Wrong Thread
+"WrongConstant": Incorrect constant
+"VisibleForTests": Visible Only For Tests
+"ProtectedPermissions": Using system app permission
+"TextFields": Missing inputType or hint
+"TextViewEdits": TextView should probably be an EditText instead
+"SelectableText": Dynamic text should probably be selectable
+"MenuTitle": Missing menu title
+"ShowToast": Toast created but not shown
+"TooDeepLayout": Layout hierarchy is too deep
+"TooManyViews": Layout has too many views
+"ExtraTranslation": Extra translation
+"MissingTranslation": Incomplete translation
+"Typos": Spelling error
+"TypographyDashes": Hyphen can be replaced with dash
+"TypographyEllipsis": Ellipsis string can be replaced with ellipsis character
+"TypographyFractions": Fraction string can be replaced with fraction
+      character
+"TypographyOther": Other typographical problems
+"TypographyQuotes": Straight quotes can be replaced with curvy quotes
+"UnsafeProtectedBroadcastReceiver": Unsafe Protected BroadcastReceiver
+"UnprotectedSMSBroadcastReceiver": Unprotected SMS BroadcastReceiver
+"UnusedResources": Unused resources
+"UnusedIds": Unused id
+"UseCompoundDrawables": Node can be replaced by a TextView with compound
+      drawables
+"UselessLeaf": Useless leaf layout
+"UselessParent": Useless parent layout
+"EnforceUTF8": Encoding used in resource files is not UTF-8
+"VectorRaster": Vector Image Generation
+"VectorDrawableCompat": Using VectorDrawableCompat
+"VectorPath": Long vector paths
+"InvalidVectorPath": Invalid vector paths
+"ViewConstructor": Missing View constructors for XML inflation
+"ViewHolder": View Holder Candidates
+"ViewTag": Tagged object leaks
+"WrongViewCast": Mismatched view type
+"FindViewByIdCast": Add Explicit Cast
+"Wakelock": Incorrect WakeLock usage
+"WakelockTimeout": Using wakeLock without timeout
+"InvalidWearFeatureAttribute": Invalid attribute for Wear uses-feature
+"WearStandaloneAppFlag": Invalid or missing Wear standalone app flag
+"WebViewLayout": WebViews in wrap_content parents
+"WrongCall": Using wrong draw/layout method
+"WrongCase": Wrong case for view tag
+"InvalidId": Invalid ID declaration
+"NotSibling": RelativeLayout Invalid Constraints
+"UnknownId": Reference to an unknown id
+"UnknownIdInLayout": Reference to an id that is not in the current layout
+"SuspiciousImport": 'import android.R' statement
+"WrongFolder": Resource file in the wrong res folder
+"WrongThreadInterprocedural": Wrong Thread (Interprocedural)
