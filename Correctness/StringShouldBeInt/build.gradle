@@ -1,0 +1,23 @@
+apply from: rootProject.file('gradle/module-check-lib.gradle')
+
+// REPORT doesn't work with setters, only with method calls
+expectedViolationCount(3/*foo ""*/ + 3/*foo("")*/ /*+ 3/*foo = ""*/)
+
+//noinspection GroovyConstantIfStatement need to disable execution path, otherwise Gradle configuration phase would fail.
+if (false) {
+	android {
+		compileSdkVersion "29"
+		compileSdkVersion("29")
+		compileSdkVersion = "29"
+
+		defaultConfig {
+			minSdkVersion "14"
+			minSdkVersion("14")
+			minSdkVersion = "14"
+
+			targetSdkVersion "28"
+			targetSdkVersion("28")
+			targetSdkVersion = "28"
+		}
+	}
+}

@@ -155,7 +155,8 @@ include ':Correctness:StringEscaping' // Messages
 //include ':Correctness:StringFormatCount' // Messages
 include ':Correctness:StringFormatInvalid' // Messages
 include ':Correctness:StringFormatMatches' // Messages
-//include ':Correctness:StringShouldBeInt'
+include ':Correctness:StringShouldBeInt'
+include ':Correctness:StringShouldBeInt-kts'
 include ':Correctness:SupportAnnotationUsage'
 //include ':Correctness:Suspicious0dp'
 include ':Correctness:SuspiciousImport'
