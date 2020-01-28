@@ -1,0 +1,29 @@
+<!-- https://stackoverflow.com/a/54854473/253468 -->
+<!-- Based on com.android.tools.lint.client.api.DefaultConfiguration -->
+<!DOCTYPE lint [
+    <!-- note: not actually required to have lint as the root -->
+    <!ELEMENT lint (issue*)>
+    <!-- path to baseline file, absolute or relative to project dir -->
+    <!ATTLIST lint baseline CDATA #IMPLIED>
+    <!ELEMENT issue (ignore*)>
+    <!-- comma separated list of Issue IDs, or "all" -->
+    <!ATTLIST issue id CDATA #REQUIRED>
+    <!ATTLIST issue severity (ignore|error|fatal|informational|warning) #IMPLIED>
+    <!-- note: not actually required to be called ignore, all element children of issue will be used -->
+    <!ELEMENT ignore EMPTY>
+    <!--
+        No glob.
+        string exactly matching project-relative path [platform dependent]
+        string prefix for project-relative path [platform dependent] (e.g. subfolder)
+        The following has to start with `res`:
+        string exactly matching res folder-relative path [platform independent]
+        string prefix for res folder-relative path [platform independent]
+    -->
+    <!ATTLIST ignore path CDATA #IMPLIED>
+    <!--
+        regex matching the message (not whole),
+        or regex matching the project-relative path (not whole)
+        or regex matching the Unix-formatted project-relative path [on Windows] (not whole)
+    -->
+    <!ATTLIST ignore regexp CDATA #IMPLIED>
+]>
