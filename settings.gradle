@@ -158,7 +158,7 @@ include ':Correctness:StringFormatMatches' // Messages
 include ':Correctness:StringShouldBeInt'
 include ':Correctness:StringShouldBeInt-kts'
 include ':Correctness:SupportAnnotationUsage'
-//include ':Correctness:Suspicious0dp'
+include ':Correctness:Suspicious0dp'
 include ':Correctness:SuspiciousImport'
 //include ':Correctness:SwitchIntDef'
 //include ':Correctness:TestAppLink'
