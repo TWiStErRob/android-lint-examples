@@ -40,6 +40,7 @@ It helps to run only the relevant lint check on each module, which greatly helps
 
 Debugging lint
 --------------
+Note: remember to make sure `:lint` will run by calling `...:cleanLint` in the same build.
 
 ### Quick
 _This approach should work in every project._
