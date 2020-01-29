@@ -1,0 +1,12 @@
+result manually re-sorted to account for nested categories (total: 313):
+176 Category: Correctness
+ 11 Category: Correctness:Messages
+  2 Category: Correctness:Chrome OS
+ 14 Category: Usability
+ 18 Category: Usability:Icons
+  6 Category: Usability:Typography
+ 37 Category: Security
+ 35 Category: Performance
+  5 Category: Internationalization
+  4 Category: Internationalization:Bidirectional Text
+  5 Category: Accessibility
