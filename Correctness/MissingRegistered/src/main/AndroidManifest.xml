@@ -1,0 +1,29 @@
+<manifest
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+		package="net.twisterrob.lints.correctness.MissingRegistered"
+		>
+
+	<application
+			android:name=".MissingApp"
+			tools:ignore="AllowBackup,MissingApplicationIcon,GoogleAppIndexingWarning"
+			>
+		<!-- lint:AllowBackup irrelevant for this violation -->
+		<!-- lint:MissingApplicationIcon irrelevant for this violation -->
+		<!-- lint:GoogleAppIndexingWarning irrelevant for this violation -->
+
+		<activity android:name=".MissingActivity" />
+
+		<service android:name=".MissingService" />
+
+		<receiver android:name=".MissingReceiver" />
+
+		<provider
+				android:name=".MissingProvider"
+				android:authorities="${applicationId}"
+				android:exported="false"
+				/>
+
+	</application>
+
+</manifest>

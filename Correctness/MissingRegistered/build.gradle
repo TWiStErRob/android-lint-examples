@@ -1,0 +1,14 @@
+apply from: rootProject.file('gradle/module-check-app.gradle')
+
+// REPORT MissingRegistered not working in many cases, should be 6 more (menu, prefs, RecyclerView)
+expectedViolationCount(10)
+
+dependencies {
+	// Added for trying app:actionViewClass, app:actionProviderClass on menu items
+	//noinspection GradleDependency irrelevant for this violation
+	implementation "androidx.appcompat:appcompat:1.0.0"
+
+	// Added for trying app:layoutManager on RecyclerView
+	//noinspection GradleDependency irrelevant for this violation
+	implementation "androidx.recyclerview:recyclerview:1.0.0"
+}

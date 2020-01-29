@@ -93,7 +93,7 @@ include ':Correctness:InvalidR2Usage' // Butterknife
 //include ':Correctness:MissingPermission'
 //include ':Correctness:MissingPrefix'
 //include ':Correctness:MissingQuantity' // Messages
-//include ':Correctness:MissingRegistered'
+include ':Correctness:MissingRegistered'
 //include ':Correctness:MissingSuperCall'
 //include ':Correctness:MissingTranslation' // Messages
 //include ':Correctness:MissingTvBanner'

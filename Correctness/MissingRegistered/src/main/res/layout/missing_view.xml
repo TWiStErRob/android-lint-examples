@@ -1,0 +1,10 @@
+<view
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+		class="net.twisterrob.lint.correctness.MissingRegistered.MissingView"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		tools:ignore="UnusedResources"
+		>
+	<!-- lint:UnusedResources irrelevant for this violation -->
+</view>

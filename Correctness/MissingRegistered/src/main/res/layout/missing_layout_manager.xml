@@ -1,0 +1,12 @@
+<androidx.recyclerview.widget.RecyclerView
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		app:layoutManager="net.twisterrob.lints.correctness.MissingRegistered.MissingLayoutManager"
+		tools:ignore="UnusedResources"
+		>
+	<!-- lint:UnusedResources irrelevant for this violation -->
+	<!-- REPORT MissingRegistered for <androidx.recyclerview.widget.RecyclerView>/@app:layoutManager not supported -->
+</androidx.recyclerview.widget.RecyclerView>

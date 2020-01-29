@@ -1,0 +1,5 @@
+<resources>
+
+	<string name="net.twisterrob.lints.correctness.MissingRegistered.MissingAnalyticsReference">@null</string>
+
+</resources>

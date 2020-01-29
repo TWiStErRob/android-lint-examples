@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<preference-headers
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+		tools:ignore="UnusedResources"
+		>
+	<!-- lint:UnusedResources irrelevant for this violation -->
+
+	<header android:fragment="net.twisterrob.lints.correctness.MissingRegistered.MissingPreferenceHeader" />
+
+</preference-headers>

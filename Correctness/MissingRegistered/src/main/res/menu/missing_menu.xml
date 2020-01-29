@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools"
+		tools:ignore="AppCompatResource,MenuTitle,UnusedResources"
+		>
+	<!-- lint:AppCompatResource irrelevant for this violation -->
+	<!-- lint:MenuTitle irrelevant for this violation -->
+	<!-- lint:UnusedResources irrelevant for this violation -->
+
+	<!-- REPORT MissingRegistered for <menu>/<item>/@(app|android):(actionViewClass|actionProviderClass) not supported (4) -->
+
+	<item app:actionViewClass="net.twisterrob.lints.correctness.MissingRegistered.MissingSupportActionViewClass" />
+	<item app:actionProviderClass="net.twisterrob.lints.correctness.MissingRegistered.MissingSupportActionProviderClass" />
+
+	<item android:actionViewClass="net.twisterrob.lints.correctness.MissingRegistered.MissingActionViewClass" />
+	<item android:actionProviderClass="net.twisterrob.lints.correctness.MissingRegistered.MissingActionProviderClass" />
+
+</menu>

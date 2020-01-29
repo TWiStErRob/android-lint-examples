@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:fragment="net.twisterrob.lints.correctness.MissingRegistered.MissingPreference"
+		tools:ignore="UnusedResources"
+		>
+	<!-- lint:UnusedResources irrelevant for this violation -->
+
+	<!-- REPORT MissingRegistered for <Preference*>/@fragment not working -->
+
+</PreferenceScreen>
