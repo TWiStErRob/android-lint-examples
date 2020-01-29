@@ -1,0 +1,9 @@
+<!-- package needs to contain only lowercase to get a violation. -->
+<manifest
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		package="net.twisterrob.lints.correctness.innerclass_separator"
+		>
+
+	<application android:name=".InnerclassSeparatorViolation.Inner" />
+
+</manifest>
