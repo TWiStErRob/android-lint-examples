@@ -1,0 +1,20 @@
+<RelativeLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		tools:ignore="UnusedResources"
+		>
+	<!-- lint:UnusedResources irrelevant for this violation -->
+	<!-- REPORT UnusedId ignoring UnusedResources makes "unused_referenced_view" appear used -->
+
+	<View
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/unused_referenced_view"
+			tools:ignore="UnknownId"
+			>
+		<!-- lint:UnknownId intentionally adding an ID here to a non-existent view -->
+	</View>
+
+</RelativeLayout>

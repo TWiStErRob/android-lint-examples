@@ -295,7 +295,7 @@ include ':Performance:SyntheticAccessor' // not in 26.0.0
 //include ':Performance:TooDeepLayout'
 //include ':Performance:TooManyViews'
 //include ':Performance:UnpackedNativeCode'
-//include ':Performance:UnusedIds'
+include ':Performance:UnusedIds'
 //include ':Performance:UnusedNamespace'
 //include ':Performance:UnusedResources'
 //include ':Performance:UseCompoundDrawables'

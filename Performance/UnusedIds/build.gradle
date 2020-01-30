@@ -1,0 +1,5 @@
+apply from: rootProject.file('gradle/module-check-app.gradle')
+// UnusedIds is turned off on library modules to prevent false positives, use an app.
+
+// REPORT UnusedIds should be 5, see unused_rogue.xml
+expectedViolationCount(4)

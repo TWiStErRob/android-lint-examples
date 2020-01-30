@@ -1,0 +1,12 @@
+<menu
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+		tools:ignore="MenuTitle,UnusedResources"
+		>
+	<!-- lint:MenuTitle irrelevant for this violation -->
+	<!-- lint:UnusedResources irrelevant for this violation -->
+
+	<item android:id="@+id/unused_menu_item" />
+	<group android:id="@+id/unused_menu_group" />
+
+</menu>
