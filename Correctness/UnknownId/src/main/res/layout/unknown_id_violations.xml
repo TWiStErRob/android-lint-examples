@@ -1,0 +1,51 @@
+<RelativeLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		>
+
+	<View
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignBaseline="@id/not_defined"
+			/>
+
+	<View
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignBaseline="@id/defined"
+			/>
+
+	<View
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignBaseline="@id/one_similar_to_this"
+			/>
+
+	<View
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignBaseline="@id/two_similar_to_this"
+			/>
+
+	<!-- Similar view IDs -->
+
+	<View
+			android:id="@+id/one_similar_too_this"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			/>
+
+	<View
+			android:id="@+id/two_similar_to_thes"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			/>
+
+	<View
+			android:id="@+id/two_similar_tu_this"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			/>
+
+</RelativeLayout>

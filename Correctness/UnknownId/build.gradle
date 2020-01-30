@@ -1,0 +1,7 @@
+apply from: rootProject.file('gradle/module-check-lib.gradle')
+
+// REPORT UnknownId suggestions collect 2-distance similar IDs,
+//        but `for (int i = 0; i < maxDistance; i++) {` discards them.
+//        0-distance similar IDs are meaningless (equal to reported ID),
+//        and will not be found as they're removed when building `spellingDictionary`.
+expectedViolationCount(4)
