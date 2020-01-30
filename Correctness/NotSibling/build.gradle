@@ -1,0 +1,9 @@
+apply from: rootProject.file('gradle/module-check-lib.gradle')
+
+// REPORT NotSibling should be 3 + 3, but @id/self_reference doesn't work
+expectedViolationCount(2 + 2)
+
+dependencies {
+	//noinspection GradleDependency irrelevant for this violation
+	implementation "androidx.constraintlayout:constraintlayout:1.1.3"
+}

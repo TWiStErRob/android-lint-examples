@@ -1,0 +1,46 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		>
+
+	<!-- lint:MissingConstraints was easily fixed by using match_parent -->
+
+	<View
+			android:id="@+id/self_reference_new"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			app:layout_constraintBaseline_toBaselineOf="@+id/self_reference_new"
+			/>
+
+	<View
+			android:id="@+id/self_reference"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			app:layout_constraintBaseline_toBaselineOf="@id/self_reference"
+			>
+		<!-- REPORT NotSibling doesn't report self-referencing ID without a + -->
+	</View>
+
+	<View
+			android:id="@+id/referencing_nested"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			app:layout_constraintBaseline_toBaselineOf="@id/nested"
+			/>
+
+	<FrameLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			>
+
+		<View
+				android:id="@+id/nested"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				/>
+
+	</FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
