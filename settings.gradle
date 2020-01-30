@@ -167,7 +167,7 @@ include ':Correctness:SuspiciousImport'
 include ':Correctness:UniqueConstants'
 //include ':Correctness:UniquePermission'
 //include ':Correctness:UnknownId'
-//include ':Correctness:UnknownIdInLayout'
+include ':Correctness:UnknownIdInLayout'
 //include ':Correctness:UnlocalizedSms'
 //include ':Correctness:UnsupportedChromeOsHardware' // Chrome OS
 //include ':Correctness:UnsupportedTvHardware'
