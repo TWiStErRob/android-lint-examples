@@ -1,0 +1,11 @@
+apply from: rootProject.file('gradle/module-check-lib.gradle')
+
+// REPORT InvalidId `|| "@+id".equals(ID_PREFIX)` in WrongIdDetector is always false
+// REPORT InvalidId should be 6, ids.xml is ignored
+expectedViolationCount(5)
+
+afterEvaluate {
+	// Disable packageResources tasks, because we're using IDs that don't compile.
+	tasks.packageDebugResources.enabled = false
+	tasks.packageReleaseResources.enabled = false
+}

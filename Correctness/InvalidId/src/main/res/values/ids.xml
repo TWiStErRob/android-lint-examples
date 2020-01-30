@@ -1,0 +1,6 @@
+<resources>
+
+	<!-- REPORT InvalidId doesn't detect explicit ID declarations. -->
+	<item name="foo/bar" type="id" />
+
+</resources>

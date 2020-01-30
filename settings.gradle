@@ -61,7 +61,7 @@ include ':Correctness:InnerclassSeparator'
 //include ':Correctness:InstantApps'
 include ':Correctness:Instantiatable'
 //include ':Correctness:InvalidAnalyticsName'
-//include ':Correctness:InvalidId'
+include ':Correctness:InvalidId'
 //include ':Correctness:InvalidImeActionId'
 //include ':Correctness:InvalidPackage'
 include ':Correctness:InvalidR2Usage' // Butterknife
