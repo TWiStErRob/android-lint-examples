@@ -165,7 +165,7 @@ include ':Correctness:SuspiciousImport'
 //include ':Correctness:TextViewEdits'
 //include ':Correctness:Typos' // Messages
 include ':Correctness:UniqueConstants'
-//include ':Correctness:UniquePermission'
+include ':Correctness:UniquePermission'
 include ':Correctness:UnknownId'
 include ':Correctness:UnknownIdInLayout'
 //include ':Correctness:UnlocalizedSms'

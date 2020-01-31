@@ -1,0 +1,38 @@
+<manifest
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		package="net.twisterrob.lints.correctness.UniquePermission"
+		>
+
+	<!-- REPORT UniquePermission ignores exact duplicate, because `&& !name.equals(nameToFull.get(base))`. -->
+	<permission android:name="net.twisterrob.lints.correctness.UniquePermission.BlatantDuplicate" />
+	<permission android:name="net.twisterrob.lints.correctness.UniquePermission.BlatantDuplicate" />
+
+	<!-- REPORT UniquePermission ignores full duplicate, even if the placeholders exactly match. -->
+	<permission android:name="${applicationId}.BlatantDuplicatePlaceholder" />
+	<permission android:name="${applicationId}.BlatantDuplicatePlaceholder" />
+
+	<permission android:name="net.twisterrob.lints.correctness.UniquePermission.1.SameName" />
+	<permission android:name="net.twisterrob.lints.correctness.UniquePermission.2.SameName" />
+
+	<!-- REPORT UniquePermission ignores duplicate name, because there's a placeholder.
+	            It should only be concerned about placeholders after last `.`. -->
+	<permission android:name="${applicationId}.1.SameNamePlaceholder" />
+	<permission android:name="${applicationId}.2.SameNamePlaceholder" />
+
+	<!-- REPORT UniquePermission ignores exact duplicate, because `&& !name.equals(nameToFull.get(base))`. -->
+	<permission-group android:name="net.twisterrob.lints.correctness.UniquePermission.BlatantDuplicate" />
+	<permission-group android:name="net.twisterrob.lints.correctness.UniquePermission.BlatantDuplicate" />
+
+	<!-- REPORT UniquePermission ignores full duplicate, even if the placeholders exactly match. -->
+	<permission-group android:name="${applicationId}.BlatantDuplicatePlaceholder" />
+	<permission-group android:name="${applicationId}.BlatantDuplicatePlaceholder" />
+
+	<permission-group android:name="net.twisterrob.lints.correctness.UniquePermission.1.SameName" />
+	<permission-group android:name="net.twisterrob.lints.correctness.UniquePermission.2.SameName" />
+
+	<!-- REPORT UniquePermission ignores duplicate name, because there's a placeholder.
+	            It should only be concerned about placeholders after last `.`. -->
+	<permission-group android:name="${applicationId}.1.SameNamePlaceholder" />
+	<permission-group android:name="${applicationId}.2.SameNamePlaceholder" />
+
+</manifest>

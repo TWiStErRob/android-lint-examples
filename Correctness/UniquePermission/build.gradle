@@ -1,0 +1,11 @@
+apply from: rootProject.file('gradle/module-check-lib.gradle')
+
+// REPORT UniquePermission secondary locations only match tag name, not suffix of android:name
+// `element` is the input, `suffix = '.' + base`,
+// where `base` also comes from the input, so the comparison is always true
+// -String b = element.getAttributeNS(ANDROID_URI, ATTR_NAME);
+// +String b = sibling.getAttributeNS(ANDROID_URI, ATTR_NAME);
+// This makes "Previous permission here" messages point to the wrong line.
+
+// should be 8, placeholders and exact matches are buggy.
+expectedViolationCount(2)
