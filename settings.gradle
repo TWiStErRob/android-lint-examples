@@ -175,7 +175,7 @@ include ':Correctness:UnknownIdInLayout'
 //include ':Correctness:UnusedQuantity' // Messages
 //include ':Correctness:UseAlpha2'
 //include ':Correctness:UsesMinSdkAttributes'
-//include ':Correctness:ValidFragment'
+include ':Correctness:ValidFragment'
 //include ':Correctness:ValidRestrictions'
 //include ':Correctness:VectorDrawableCompat'
 //include ':Correctness:VectorRaster'
