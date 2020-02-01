@@ -10,6 +10,31 @@ For checks to be consistently structured, use the automatic script (`:crateModul
 gradlew createModule -PcheckCategory=Correctness -PcheckName=AdapterViewChildren
 ```
 
+### Class Names
+When check focuses on class structure, the class names have could have one of the following patterns:
+```
+src/main/java/net.twisterrob.lints.<category>.<CheckName>Violation<UseCase>.java
+src/main/java/net.twisterrob.lints.<category>.<CheckName>Valid<UseCase>.java
+
+src/main/java/net.twisterrob.lints.<category>.<CheckName>Violation<UseCase>.kt
+src/main/java/net.twisterrob.lints.<category>.<CheckName>Valid<UseCase>.kt
+```
+where
+ * `src/main/java/` is the source set folder the Java/Kotlin code belongs to
+ * `net.twisterrob.lints.<category>` is the package name
+ * `<CheckName>Violation<UseCase>` is the class/file name
+ * `.java`/`.kt` is the file extension
+
+and
+ * `<category>` is the name of the top level Lint check category  
+   `com.android.tools.lint.detector.api.Category` constant lower-cased
+ * `<CheckName>` is the exact name of the check  
+   (if it's a valid JVM name, otherwise use _ for invalid characters)
+ * `<UseCase>` is an *optional* discriminator in the name for describing what the class is violating.
+ * `Violation`/`Valid` are words in the name to distinguish bad from good code.
+
+See `:Correctness:ValidFragment` for an example where this naming is used extensively.
+
 
 Commits
 -------
