@@ -83,12 +83,7 @@ Suppress Lint warnings that are not related to violation, the report should only
 Documentation
 -------------
 
-If there are violations that are not being reported in the Lint results, but are known bad, comment where it's reproduced.
-
-Use the following comment if there's already a bug/feature request reported.
-```comment
-REPORTED LintCheckName not working https://issuetracker.google.com/issues/123456789
-```
+If there are violations that are not being reported in the Lint results, but are known bad, comment where it's reproduced. See `REPORTED` and `REPORT`.
 
 For the module's Gradle script, include a comment that shows how many violations should be reported by lint for that module.
 ```gradle
@@ -96,11 +91,28 @@ For the module's Gradle script, include a comment that shows how many violations
 expectedViolationCount(...)
 ```
 
+### `REPORTED`
+
+Use the following comment if there's already a bug/feature request reported.
+```comment
+REPORTED LintCheckName not working https://issuetracker.google.com/issues/123456789
+```
+For examples where to put this, see `REPORT`.
+
+
+### `REPORT`
+
+```
+<!-- REPORT LintCheckName ns:attr is not supported,
+	        with some potential detailed explanation. -->
+```
+
+### Location
+
 For content-sensitive XML elements (e.g. `<string>`) comment missing violation on top of the element:
 ```xml
 <outer>
-	<!-- REPORT LintCheckName ns:attr is not supported,
-	            with some potential detailed explanation. -->
+	<!-- REPORT/REPORTED LintCheckName reason. -->
 	<inner ns:attr="value">non-free-form-content</inner>
 </outer>
 ```
@@ -111,14 +123,27 @@ For free-form XML elements (e.g. layouts) comment missing violation inside the e
 	<inner
 		ns:attr="value"
 		>
-		<!-- REPORT LintCheckName ns:attr is not supported,
-		            with some potential detailed explanation. -->
+		<!-- REPORT/REPORTED LintCheckName reason. -->
 		<additional potential="content" />
 	</inner>
 </outer>
 ```
 
-If an unrelated lint check is ignored for a specific check, document why:
+For explaining Java/Kotlin code use a simple comment, for example:
+```java
+class CheckNameViolation {
+	// something to note about the class
+
+	CheckNameViolation() {
+		// something to note about the constructor
+	}
+}
+```
+
+
+### Unrelated violations
+
+If an unrelated lint check is ignored for a specific check, document why (mostly it'll be "_irrelevant for this violation_"):
 ```xml
 <Layout
 		xmlns:android="http://schemas.android.com/apk/res/android"
@@ -131,4 +156,12 @@ If an unrelated lint check is ignored for a specific check, document why:
 	<!-- lint:IrrelevantCheck1 irrelevant for this violation -->
 	<!-- lint:IrrelevantCheck2 irrelevant for this violation -->
 </Layout>
+```
+
+In Gradle files the suppression allows for documenting on the same line:
+```gradle
+dependencies {
+	//noinspection GradleDependency irrelevant for this violation
+	implementation "androidx.lib:lib:1.0.0"
+}
 ```
