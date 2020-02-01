@@ -33,7 +33,11 @@ tasks.register("createModule") {
 
 		def buildGradle = new File(module, "build.gradle")
 		buildGradle.parentFile.mkdirs()
-		buildGradle.text = "apply from: rootProject.file('gradle/module-check-lib.gradle')\n"
+		buildGradle.text = """
+			apply from: rootProject.file('gradle/module-check-lib.gradle')
+			
+			expectedViolationCount(1 /*java*/ + 1 /*kotlin*/)
+		""".stripIndent().trim() + "\n"
 		gitAdd(buildGradle)
 
 		def manifest = new File(module, "src/main/AndroidManifest.xml")
