@@ -62,6 +62,18 @@ tasks.register("createModule") {
 		""".stripIndent().trim() + "\n"
 		gitAdd(kotlin)
 
+		def layout = new File(module, "src/main/res/layout/${checkName.toLowerCase()}.xml")
+		layout.parentFile.mkdirs()
+		layout.text = """
+			<View
+					xmlns:android="http://schemas.android.com/apk/res/android"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					>
+			</View>
+		""".stripIndent().trim() + "\n"
+		gitAdd(layout)
+
 		def settingsGradle = rootProject.file("settings.gradle")
 		def lines = settingsGradle.text.split(/\r?\n/).toList()
 		def includeLine = "include ':${checkCategory}:${checkName}'"
