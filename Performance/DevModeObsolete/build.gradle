@@ -1,0 +1,17 @@
+apply from: rootProject.file('gradle/module-check-lib.gradle')
+
+// Should be 1, but impossible to trigger,
+// because it has `LintClient.CLIENT_GRADLE != LintClient.clientName`
+expectedViolationCount(0)
+
+android {
+	flavorDimensions("mode")
+	productFlavors {
+		dev {
+			dimension = "mode"
+			minSdkVersion 21
+			// REPORT DevModeObsolete doesn't recognize setter
+			minSdkVersion = 21
+		}
+	}
+}

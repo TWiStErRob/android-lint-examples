@@ -275,7 +275,7 @@ include ':Security:EasterEgg'
 
 include ':Performance'
 //include ':Performance:AnimatorKeep'
-//include ':Performance:DevModeObsolete'
+include ':Performance:DevModeObsolete'
 //include ':Performance:DisableBaselineAlignment'
 //include ':Performance:DrawAllocation'
 //include ':Performance:DuplicateDivider'
