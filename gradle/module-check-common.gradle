@@ -70,7 +70,10 @@ def lintVerifyCount = tasks.register("lintVerifyCount") { task ->
 		if (numberOfViolations != expectedViolationCount) {
 			throw new GradleException(
 					"Expected ${expectedViolationCount}, " +
-							"but there were ${numberOfViolations} ${checkName} reported.")
+							"but there were ${numberOfViolations} ${checkName} reported.\n" +
+							"Use expectedViolationCount(${numberOfViolations}) in module's build.gradle, " +
+							"if this is the correct number of violations, " +
+							"or review ${report}.")
 		}
 	}
 }
