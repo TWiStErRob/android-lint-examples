@@ -15,7 +15,7 @@ apply plugin: 'kotlin'
 
 repositories {
 	google()
-	jcenter()
+	mavenCentral()
 }
 
 dependencies {
