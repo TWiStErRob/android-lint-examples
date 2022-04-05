@@ -66,7 +66,8 @@ def lintVerifyCount = tasks.register("lintVerifyCount") { task ->
 		if (numberOfViolations < numberOfIssues) {
 			throw new GradleException(
 					"There were ${numberOfIssues} issues in ${project}, " +
-							"but not all of them were ${checkName}")
+							"but not all of them were ${checkName}.\n" +
+							"See ${report}.")
 		}
 		if (numberOfViolations != expectedViolationCount) {
 			throw new GradleException(
