@@ -17,16 +17,19 @@ expectedViolationCount(2)
 dependencies {
 	implementation "com.jakewharton:butterknife:${butterknife_version}"
 	annotationProcessor "com.jakewharton:butterknife-compiler:${butterknife_version}"
-	// a hack to get access to InvalidR2UsageDetector for source and debugging
-	afterEvaluate { compileOnly lintJars(project) }
+
+	// A hack to get access to InvalidR2UsageDetector for source and debugging.
+	afterEvaluate { debugCompileOnly(debugLintJars(project)) }
 }
 
-// based on com.android.build.gradle.internal.scope.VariantScopeImpl.computeArtifactCollection
-static def lintJars(Project project) {
+// Based on com.android.build.gradle.internal.dependency.VariantDependencies.computeArtifactCollection.
+import com.android.build.gradle.internal.publishing.AndroidArtifacts
+
+static FileCollection debugLintJars(Project project) {
 	Configuration configuration = project.configurations.debugRuntimeClasspath
-	Action<ArtifactView.ViewConfiguration> view = { config ->
+	Action<org.gradle.api.artifacts.ArtifactView.ViewConfiguration> view = { config ->
 		config.attributes { container ->
-			container.attribute(Attribute.of("artifactType", String.class), "android-lint")
+			container.attribute(AndroidArtifacts.ARTIFACT_TYPE, AndroidArtifacts.ArtifactType.LINT.type)
 		}
 	}
 	return configuration
