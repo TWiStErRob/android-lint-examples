@@ -3,22 +3,22 @@ apply plugin: 'kotlin-android'
 def checkName = project.name.replaceAll(/-.*/, '')
 
 android {
-	compileSdkVersion 28
+	compileSdk = 31
 
 	defaultConfig {
-		minSdkVersion 14
-		targetSdkVersion 28
+		minSdk = 14
+		targetSdk = 31
 	}
 
-	lintOptions {
+	lint { // com.android.build.api.dsl.Lint it ->
 		boolean onlySpecific = project.property("lints.check.only.specific").toBoolean()
 		it.abortOnError = false
 		it.checkAllWarnings = !onlySpecific
 		if (onlySpecific) {
-			it.check checkName
+			it.checkOnly = [checkName]
 		} else {
 			// com.android.tools.lint.LintCliClient.CliConfiguration.getDefaultSeverity disables this by default
-			it.enable('WrongThreadInterprocedural')
+			it.enable += ['WrongThreadInterprocedural']
 		}
 		it.xmlReport = true
 		it.checkTestSources = true

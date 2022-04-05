@@ -1,4 +1,4 @@
-import com.android.builder.model.Version
+import com.android.Version
 
 // this block specifies the classpath of this file only, has no effect on the project itself
 buildscript {
@@ -11,8 +11,8 @@ buildscript {
 		jcenter()
 	}
 	dependencies {
-		// to be able to access com.android.builder.model.Version artifact
-		classpath "com.android.tools.build:builder-model:${props.VERSION_AGP}"
+		// To be able to access com.android.Version from com.android.tools:common artifact.
+		classpath "com.android.tools.build:gradle:${props.VERSION_AGP}"
 		//classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${props.VERSION_KOTLIN}"
 	}
 }
