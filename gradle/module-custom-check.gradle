@@ -3,6 +3,7 @@ import com.android.builder.model.Version
 buildscript {
 	repositories {
 		google()
+		mavenCentral()
 	}
 	dependencies {
 		// to be able to access com.android.builder.model.Version artifact
