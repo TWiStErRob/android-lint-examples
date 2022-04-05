@@ -8,7 +8,7 @@ buildscript {
 	}
 	repositories {
 		google()
-		jcenter()
+		mavenCentral()
 	}
 	dependencies {
 		// To be able to access com.android.Version from com.android.tools:common artifact.
@@ -22,7 +22,7 @@ apply plugin: 'java-library'
 
 repositories {
 	google()
-	jcenter()
+	mavenCentral()
 }
 
 configurations {
