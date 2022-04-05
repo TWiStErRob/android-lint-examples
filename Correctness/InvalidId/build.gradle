@@ -5,7 +5,15 @@ apply from: rootProject.file('gradle/module-check-lib.gradle')
 expectedViolationCount(5)
 
 afterEvaluate {
-	// Disable packageResources tasks, because we're using IDs that don't compile.
+	// Disable some tasks, because we're using IDs that don't compile.
+	tasks.parseDebugLocalResources.enabled = false
+	tasks.parseReleaseLocalResources.enabled = false
+	tasks.generateDebugRFile.enabled = false
+	tasks.generateReleaseRFile.enabled = false
+	tasks.generateDebugUnitTestStubRFile.enabled = false
+	tasks.generateReleaseUnitTestStubRFile.enabled = false
 	tasks.packageDebugResources.enabled = false
 	tasks.packageReleaseResources.enabled = false
+	tasks.mergeReleaseResources.enabled = false
+	tasks.verifyReleaseResources.enabled = false
 }
