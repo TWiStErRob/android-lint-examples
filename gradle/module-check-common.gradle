@@ -36,10 +36,10 @@ repositories {
 }
 
 dependencies {
-	implementation "androidx.annotation:annotation:1.0.1"
-	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${VERSION_KOTLIN}"
+	implementation "androidx.annotation:annotation:1.3.0"
+	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${VERSION_KOTLIN}"
 
-	testImplementation "junit:junit:4.12"
+	testImplementation "junit:junit:4.13.2"
 	testImplementation "org.jetbrains.kotlin:kotlin-test-junit:${VERSION_KOTLIN}"
 }
 
