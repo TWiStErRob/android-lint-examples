@@ -5,3 +5,11 @@ apply from: rootProject.file('gradle/module-check-lib.gradle')
 //        0-distance similar IDs are meaningless (equal to reported ID),
 //        and will not be found as they're removed when building `spellingDictionary`.
 expectedViolationCount(4)
+
+afterEvaluate {
+	// Disable verifyReleaseResources task, because we're using IDs that don't compile:
+	// > Android resource linking failed
+	// >ERROR:Correctness\UnknownId\src\main\res\layout\unknown_id_violations.xml:7:
+	// AAPT: error: resource id/not_defined (aka net.twisterrob.lints.correctness.UnknownId:id/not_defined) not found.
+	tasks.verifyReleaseResources.enabled = false
+}
