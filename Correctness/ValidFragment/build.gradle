@@ -4,5 +4,5 @@ expectedViolationCount(6 /*java*/+ 6 /*kotlin*/)
 
 dependencies {
 	//noinspection GradleDependency irrelevant for this violation
-	implementation "androidx.fragment:fragment:1.0.0"
+	implementation "androidx.fragment:fragment:1.4.1"
 }

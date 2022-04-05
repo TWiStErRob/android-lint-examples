@@ -1,5 +1,5 @@
 buildscript {
-	ext.butterknife_version = '10.2.1'
+	ext.butterknife_version = '10.2.3'
 	repositories {
 		google()
 		mavenCentral()

@@ -6,9 +6,9 @@ expectedViolationCount(10)
 dependencies {
 	// Added for trying app:actionViewClass, app:actionProviderClass on menu items
 	//noinspection GradleDependency irrelevant for this violation
-	implementation "androidx.appcompat:appcompat:1.0.0"
+	implementation "androidx.appcompat:appcompat:1.4.1"
 
 	// Added for trying app:layoutManager on RecyclerView
 	//noinspection GradleDependency irrelevant for this violation
-	implementation "androidx.recyclerview:recyclerview:1.0.0"
+	implementation "androidx.recyclerview:recyclerview:1.2.1"
 }
