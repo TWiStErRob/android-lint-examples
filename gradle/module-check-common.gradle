@@ -20,6 +20,7 @@ android {
 			// com.android.tools.lint.LintCliClient.CliConfiguration.getDefaultSeverity disables this by default
 			it.enable += ['WrongThreadInterprocedural']
 		}
+		it.disable += ["UnusedResources"]
 		it.xmlReport = true
 		it.checkTestSources = true
 		it.explainIssues = true
