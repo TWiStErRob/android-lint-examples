@@ -1,8 +1,9 @@
 package net.twisterrob.lints.correctness;
 
 
+import android.app.Fragment;
+
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 
 abstract class ValidFragmentValidAbstractJava extends Fragment {
 	// abstract is fine, it's not instantiatable by JVM anyway

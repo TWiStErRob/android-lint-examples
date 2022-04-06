@@ -1,7 +1,8 @@
 package net.twisterrob.lints.correctness;
 
+import android.app.Fragment;
+
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 
 public class ValidFragmentViolationNonDefaultJava extends Fragment {
 	public ValidFragmentViolationNonDefaultJava(@NonNull String name) {

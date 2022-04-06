@@ -1,6 +1,6 @@
 package net.twisterrob.lints.correctness;
 
-import androidx.fragment.app.Fragment;
+import android.app.Fragment;
 
 public class ValidFragmentValidJava extends Fragment {
 }

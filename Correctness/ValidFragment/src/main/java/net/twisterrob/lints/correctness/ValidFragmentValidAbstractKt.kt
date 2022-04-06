@@ -1,6 +1,6 @@
 package net.twisterrob.lints.correctness
 
-import androidx.fragment.app.Fragment
+import android.app.Fragment
 
 // abstract is fine, it's not instantiatable by JVM anyway
 // even if it's not public
