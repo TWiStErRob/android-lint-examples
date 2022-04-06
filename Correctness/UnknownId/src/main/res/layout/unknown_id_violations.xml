@@ -3,7 +3,10 @@
 		xmlns:tools="http://schemas.android.com/tools"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
+		tools:ignore="UnusedIds"
 		>
+
+	<!-- lint:UnusedIds irrelevant for this violation -->
 
 	<View
 			android:layout_width="wrap_content"

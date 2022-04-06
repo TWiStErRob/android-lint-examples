@@ -1,5 +1,7 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-	<item name="defined" type="id" />
+	<item name="defined" type="id" tools:ignore="UnusedIds">
+		<!-- lint:UnusedIds irrelevant for this violation -->
+	</item>
 
 </resources>
