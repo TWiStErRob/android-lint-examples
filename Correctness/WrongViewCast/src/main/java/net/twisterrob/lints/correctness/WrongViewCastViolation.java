@@ -1,5 +1,6 @@
 package net.twisterrob.lints.correctness;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -11,6 +12,7 @@ public class WrongViewCastViolation extends Activity {
 	RelativeLayout implicitField;
 
 	@SuppressWarnings("RedundantCast")
+	@SuppressLint("CutPasteId") // irrelevant for this violation
 	void bind(View view) {
 		implicitField = findViewById(R.id.root);
 		explicitField = (RelativeLayout) findViewById(R.id.root);

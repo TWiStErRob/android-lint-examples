@@ -1,7 +1,8 @@
 apply from: rootProject.file('gradle/module-check-app.gradle')
 
 // REPORT MissingRegistered not working in many cases, should be 6 more (menu, prefs, RecyclerView)
-expectedViolationCount(10)
+expectedViolationCount(11)
+checkName("MissingClass")
 
 dependencies {
 	// Added for trying app:actionViewClass, app:actionProviderClass on menu items

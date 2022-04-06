@@ -165,3 +165,16 @@ dependencies {
 	implementation "androidx.lib:lib:1.0.0"
 }
 ```
+
+In Java and Kotlin files files the suppression allows for documenting on the same line:
+```kotlin
+@SuppressLint("IrrelevantCheck") // irrelevant for this violation
+// or
+@SuppressLint(
+    "IrrelevantCheck1", // irrelevant for this violation
+    "IrrelevantCheck2", // irrelevant for this violation
+)
+fun f() {
+    ...
+}
+```

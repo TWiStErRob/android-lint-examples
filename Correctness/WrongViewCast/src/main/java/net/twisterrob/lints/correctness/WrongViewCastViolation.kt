@@ -1,5 +1,6 @@
 package net.twisterrob.lints.correctness
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.View
 import android.widget.RelativeLayout
@@ -11,6 +12,7 @@ class WrongViewCastViolationView(context: Context) : View(context) {
 
 	// REPORT none of these are actually resolved from console because resource id is not found
 	@Suppress("UNUSED_VARIABLE")
+	@SuppressLint("CutPasteId") // irrelevant for this violation
 	fun bind(view: View) {
 		// REPORT not handled in ViewTypeDetector.kt
 		implicitField = findViewById(R.id.root)
