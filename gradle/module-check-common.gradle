@@ -44,24 +44,83 @@ dependencies {
 }
 
 project.ext.expectedViolationCount = { count ->
-	tasks.named("lintVerifyCount").configure { task ->
-		task.ext.expectedViolationCount = count
-		task.inputs.property("expectedViolationCount", expectedViolationCount)
+	tasks.named("lintVerifyCount", VerifyCount).configure { VerifyCount task ->
+		task.expectedViolationCount.set(count)
 	}
 }
 
-def lintVerifyCount = tasks.register("lintVerifyCount") { task ->
-	// configure with expectedViolationCount(3)
-	ext.expectedViolationCount = 1
-	task.inputs.property("expectedViolationCount", expectedViolationCount)
-	File report = android.lintOptions.xmlOutput ?: file("${buildDir}/reports/lint-results-debug.xml")
-	task.inputs.file(report)
-	// dummy output that will never change, but this keeps the task up to date when inputs unchanged
-	task.outputs.file("${buildDir}/reports/lint-checked.txt")
-	doLast {
-		def expectedViolationCount = ext.expectedViolationCount
+project.ext.verifiedVariant = { variant ->
+	tasks.named("lintVerifyCount", VerifyCount).configure { VerifyCount task ->
+		task.verifiedVariant.set(variant)
+	}
+}
+
+def lintVerifyCount = tasks.register("lintVerifyCount", VerifyCount)
+
+def debugging = project.findProperty("org.gradle.debug")?.toBoolean() == true
+if (!debugging) {
+	tasks.named("lint").configure { Task task ->
+		task.finalizedBy(lintVerifyCount)
+	}
+}
+
+abstract class VerifyCount extends DefaultTask {
+
+	/**
+	 * Configure with `verifiedVariant("fooBar")`.
+	 */
+	@Input
+	abstract Property<String> getVerifiedVariant()
+
+	@Input
+	abstract Property<String> getCheckName()
+
+	/**
+	 * Configure with `expectedViolationCount(3)`.
+	 */
+	@Input
+	abstract Property<Integer> getExpectedViolationCount()
+
+	@InputFile
+	@PathSensitive(PathSensitivity.RELATIVE)
+	Provider<File> report =
+			verifiedVariant
+					.map { variant ->
+						project.android.lintOptions.xmlOutput
+								?: project.layout.buildDirectory.file("reports/lint-results-${variant}.xml").get().asFile
+					}
+
+	/**
+	 * Dummy output that will never change, but this keeps the task up to date when inputs unchanged.
+	 */
+	@OutputFile
+	abstract RegularFileProperty getDummyOutput()
+
+	@Internal
+	abstract DirectoryProperty getBaseDirectory()
+
+	VerifyCount() {
+		verifiedVariant.convention("debug")
+		checkName.convention(project.name.replaceAll(/-.*/, ''))
+		expectedViolationCount.convention(1)
+		baseDirectory.convention(project.rootProject.layout.projectDirectory)
+		dummyOutput.value(project.layout.buildDirectory.file("reports/lint-count.txt"))
+	}
+
+	@TaskAction
+	void verify() {
+		def expectedViolationCount = expectedViolationCount.get()
+		def report = this.report.get()
+		def checkName = this.checkName.get()
 		def numberOfIssues = report.text.count("<issue\n")
 		def numberOfViolations = report.text.count("id=\"${checkName}\"")
+		dummyOutput.get().asFile.text = """\
+			check=${checkName}
+			report=${baseDirectory.get().asFile.toPath().relativize(report.toPath())}
+			issues=${numberOfIssues}
+			checkInstances=${numberOfViolations}
+			expected=${expectedViolationCount}
+		""".stripIndent()
 		//println("${checkName}: ${expectedViolationCount} == ${numberOfViolations}/${numberOfIssues}")
 		if (numberOfViolations < numberOfIssues) {
 			throw new GradleException(
@@ -77,12 +136,5 @@ def lintVerifyCount = tasks.register("lintVerifyCount") { task ->
 							"if this is the correct number of violations, " +
 							"or review ${report}.")
 		}
-	}
-}
-
-def debugging = project.findProperty("org.gradle.debug")?.toBoolean() == true
-if (!debugging) {
-	tasks.named("lint").configure { Task task ->
-		task.finalizedBy(lintVerifyCount)
 	}
 }
