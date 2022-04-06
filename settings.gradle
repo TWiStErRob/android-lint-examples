@@ -1,5 +1,9 @@
 include ':gradle:debugger'
 
+if (getProperty("lints.use.all.versions").toBoolean()) {
+	include(":gradle:dependencies:agp-32x")
+}
+
 include ':Correctness'
 include ':Correctness:AaptCrash'
 include ':Correctness:AccidentalOctal'
