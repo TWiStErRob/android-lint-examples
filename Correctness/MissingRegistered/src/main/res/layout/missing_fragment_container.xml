@@ -1,12 +1,11 @@
-<fragment
+<androidx.fragment.app.FragmentContainerView
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		xmlns:tools="http://schemas.android.com/tools"
 		android:id="@+id/missing"
 		android:name="net.twisterrob.lint.correctness.MissingRegistered.MissingFragment"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		tools:ignore="UnusedResources,FragmentTagUsage"
+		tools:ignore="UnusedResources"
 		>
 	<!-- lint:UnusedResources irrelevant for this violation -->
-	<!-- lint:FragmentTagUsage irrelevant for this violation -->
-</fragment>
+</androidx.fragment.app.FragmentContainerView>

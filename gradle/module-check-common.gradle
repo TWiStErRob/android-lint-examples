@@ -55,6 +55,12 @@ project.ext.verifiedVariant = { variant ->
 	}
 }
 
+project.ext.checkName = { check ->
+	tasks.named("lintVerifyCount", VerifyCount).configure { VerifyCount task ->
+		task.checkName.set(check)
+	}
+}
+
 def lintVerifyCount = tasks.register("lintVerifyCount", VerifyCount)
 
 def debugging = project.findProperty("org.gradle.debug")?.toBoolean() == true
