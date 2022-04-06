@@ -209,7 +209,6 @@ include ':Usability:ButtonStyle'
 //include ':Usability:ConvertToWebp' // Icons
 //include ':Usability:GifUsage' // Icons
 //include ':Usability:GoogleAppIndexingApiWarning'
-include ':Usability:GoogleAppIndexingWarning'
 //include ':Usability:IconColors' // Icons
 //include ':Usability:IconDensities' // Icons
 //include ':Usability:IconDipSize' // Icons
