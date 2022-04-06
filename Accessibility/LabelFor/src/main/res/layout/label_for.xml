@@ -21,10 +21,11 @@
 			android:layout_height="match_parent"
 			android:hint="enter something"
 			android:inputType="none"
-			tools:ignore="AutoFill,HardcodedText"
+			tools:ignore="AutoFill,HardcodedText,UnusedIds"
 			>
 		<!-- lint:AutoFill irrelevant for this violation -->
 		<!-- lint:HardcodedText irrelevant for this violation -->
+		<!-- lint:UnusedIds REPORT it's actually used -->
 	</EditText>
 
 </LinearLayout>

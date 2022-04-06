@@ -4,6 +4,8 @@
 		android:layout_height="match_parent"
 		>
 
+	<!-- REPORT UnusedIds only shows up for constraint, not for relative. -->
+
 	<View
 			android:id="@+id/self_reference_new"
 			android:layout_width="wrap_content"

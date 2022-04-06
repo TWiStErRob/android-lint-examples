@@ -4,5 +4,8 @@
 		android:id="@+id/dynamicText"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		tools:ignore="UnusedIds"
 		tools:text="Will be dynamically set"
-		/>
+		>
+	<!-- lint:UnusedIds android:id is necessary to trigger SelectableText -->
+</TextView>
