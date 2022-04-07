@@ -1,3 +1,4 @@
 apply from: rootProject.file('gradle/module-check-lib.gradle')
 
-expectedViolationCount(6 /*+ 5*/)
+// REPORT 2+3 false negatives
+expectedViolationCount(6 /*+ 2*/ + 5 /*+ 3*/)
