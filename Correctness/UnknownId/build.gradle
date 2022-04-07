@@ -4,7 +4,9 @@ apply from: rootProject.file('gradle/module-check-lib.gradle')
 //        but `for (int i = 0; i < maxDistance; i++) {` discards them.
 //        0-distance similar IDs are meaningless (equal to reported ID),
 //        and will not be found as they're removed when building `spellingDictionary`.
-expectedViolationCount(4)
+// REPORT UnknownId AGP 3.3.2 detection disappeared:
+//        > The id "defined" is defined but not assigned to any views.
+expectedViolationCount(3)
 
 afterEvaluate {
 	// Disable verifyReleaseResources task, because we're using IDs that don't compile:
