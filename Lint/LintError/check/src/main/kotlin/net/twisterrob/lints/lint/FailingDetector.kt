@@ -8,6 +8,7 @@ import com.android.tools.lint.detector.api.Context
 import com.android.tools.lint.detector.api.Detector
 import com.android.tools.lint.detector.api.Implementation
 import com.android.tools.lint.detector.api.Issue
+import com.android.tools.lint.detector.api.OtherFileScanner
 import com.android.tools.lint.detector.api.Scope
 import com.android.tools.lint.detector.api.Severity
 
@@ -25,10 +26,11 @@ class FailingRegistry : IssueRegistry() {
 	override val issues: List<Issue> = listOf(FailingDetector.ISSUE)
 }
 
-class FailingDetector : Detector() {
+class FailingDetector : Detector(), OtherFileScanner {
 
-	override fun beforeCheckRootProject(context: Context) =
+	override fun run(context: Context) {
 		error("Trigger LintError for ${context.file}")
+	}
 
 	companion object {
 		val ISSUE = Issue.create(
@@ -40,7 +42,11 @@ class FailingDetector : Detector() {
 			Severity.FATAL,
 			Implementation(
 				FailingDetector::class.java,
-				Scope.EMPTY
+				/**
+				 * @see com.android.tools.lint.detector.api.Scope.OTHER
+				 * This will call [Detector.run] on the detectors unconditionally.
+				 */
+				Scope.OTHER_SCOPE
 			)
 		)
 	}

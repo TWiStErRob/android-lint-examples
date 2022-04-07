@@ -1,3 +1,8 @@
 apply from: rootProject.file('gradle/module-custom-check.gradle')
 
 lintRegistry('net.twisterrob.lints.lint.FailingRegistry')
+
+// REPORT This was working on AGP 3.3.2,
+// on 7.1.2 the error gets into com.android.tools.lint.LintCliClient.getDefiniteIncidents,
+// but it is somehow lost afterwards (this@LintCliClient identity changes).
+expectedViolationCount(0)
