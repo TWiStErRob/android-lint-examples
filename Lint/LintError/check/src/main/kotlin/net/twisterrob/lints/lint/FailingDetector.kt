@@ -1,11 +1,26 @@
 package net.twisterrob.lints.lint
 
 import com.android.tools.lint.client.api.IssueRegistry
-import com.android.tools.lint.detector.api.*
+import com.android.tools.lint.client.api.Vendor
+import com.android.tools.lint.detector.api.CURRENT_API
+import com.android.tools.lint.detector.api.Category
+import com.android.tools.lint.detector.api.Context
+import com.android.tools.lint.detector.api.Detector
+import com.android.tools.lint.detector.api.Implementation
+import com.android.tools.lint.detector.api.Issue
+import com.android.tools.lint.detector.api.Scope
+import com.android.tools.lint.detector.api.Severity
 
 class FailingRegistry : IssueRegistry() {
 
-	override val api: Int = com.android.tools.lint.detector.api.CURRENT_API
+	override val vendor: Vendor = Vendor(
+		vendorName = "TWiStErRob",
+		identifier = "android-lint-examples",
+		feedbackUrl = "https://github.com/TWiStErRob/android-lint-examples/issues",
+		contact = "https://github.com/TWiStErRob/android-lint-examples"
+	)
+
+	override val api: Int = CURRENT_API
 
 	override val issues: List<Issue> = listOf(FailingDetector.ISSUE)
 }
