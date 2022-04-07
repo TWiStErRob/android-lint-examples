@@ -9,8 +9,6 @@
 	<!-- lint:MenuTitle irrelevant for this violation -->
 	<!-- lint:UnusedResources irrelevant for this violation -->
 
-	<!-- REPORT MissingRegistered for <menu>/<item>/@(app|android):(actionViewClass|actionProviderClass) not supported (4) -->
-
 	<item app:actionViewClass="net.twisterrob.lints.correctness.MissingRegistered.MissingSupportActionViewClass" />
 	<item app:actionProviderClass="net.twisterrob.lints.correctness.MissingRegistered.MissingSupportActionProviderClass" />
 
