@@ -1,6 +1,6 @@
 apply from: rootProject.file('gradle/module-check-lib.gradle')
 
-expectedViolationCount(3)
+// REPORT CommentDetector reports all of them, but report is empty. 
+expectedViolationCount(0 /*5*/)
 
-// REPORTED not working https://issuetracker.google.com/issues/117485020
 // STOPSHIP in build.gradle
