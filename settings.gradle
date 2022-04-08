@@ -341,7 +341,6 @@ include ':Accessibility:LabelFor'
 
 include ':Lint'
 include ':Lint:LintBaseline'
-include ':Lint:LintCanceled'
 include ':Lint:ParserError'
 include ':Lint:LintError'
 include ':Lint:LintError:check'
