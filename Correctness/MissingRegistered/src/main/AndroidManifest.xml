@@ -6,9 +6,8 @@
 
 	<application
 			android:name=".MissingApp"
-			tools:ignore="AllowBackup,MissingApplicationIcon"
+			tools:ignore="MissingApplicationIcon"
 			>
-		<!-- lint:AllowBackup irrelevant for this violation -->
 		<!-- lint:MissingApplicationIcon irrelevant for this violation -->
 
 		<activity android:name=".MissingActivity" />
