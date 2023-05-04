@@ -9,26 +9,26 @@ concurrency:
   cancel-in-progress: true
 jobs:
   build:
-    name: 🛠 Build & Verify
+    name: "🛠 Build & Verify"
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Set up JDK 11.
+      - name: "Set up JDK 11."
         uses: actions/setup-java@v3
         with:
           distribution: 'zulu'
           java-version: 11
 
-      - name: Set up Android SDK.
+      - name: "Set up Android SDK."
         uses: android-actions/setup-android@v2
 
-      - name: Checkout ${{ github.ref }} branch in ${{ github.repository }} repository.
+      - name: "Checkout ${{ github.ref }} branch in ${{ github.repository }} repository."
         uses: actions/checkout@v3
 
-      - name: Validate Gradle Wrapper JARs.
+      - name: "Validate Gradle Wrapper JARs."
         uses: gradle/wrapper-validation-action@v1
 
-      - name: Build & Verify project.
+      - name: "Build & Verify project."
         run: >
           ./gradlew
           --no-daemon
@@ -40,35 +40,35 @@ jobs:
           lint
           lintVerifyCount
 
-      - name: Upload "Lint Results".
+      - name: "Upload 'Lint Results' artifact."
         if: success() || failure()
         uses: actions/upload-artifact@v3
         with:
-          name: Lint Results
+          name: 'Lint Results'
           path: |
             ${{ github.workspace }}/**/build/reports/lint-results*.*
 
   build-quick:
-    name: 🧪 Quick Lint
+    name: "🧪 Quick Lint"
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Set up JDK 11.
+      - name: "Set up JDK 11."
         uses: actions/setup-java@v3
         with:
           distribution: 'zulu'
           java-version: 11
 
-      - name: Set up Android SDK.
+      - name: "Set up Android SDK."
         uses: android-actions/setup-android@v2
 
-      - name: Checkout ${{ github.ref }} branch in ${{ github.repository }} repository.
+      - name: "Checkout ${{ github.ref }} branch in ${{ github.repository }} repository."
         uses: actions/checkout@v3
 
-      - name: Validate Gradle Wrapper JARs.
+      - name: "Validate Gradle Wrapper JARs."
         uses: gradle/wrapper-validation-action@v1
 
-      - name: Build & Verify project.
+      - name: "Build & Verify project."
         run: >
           ./gradlew
           --no-daemon
@@ -79,35 +79,35 @@ jobs:
           lint
           lintVerifyCount
 
-      - name: Upload "Lint Results (Quick)".
+      - name: "Upload 'Lint Results (Quick)' artifact."
         if: success() || failure()
         uses: actions/upload-artifact@v3
         with:
-          name: Lint Results (Quick)
+          name: 'Lint Results (Quick)'
           path: |
             ${{ github.workspace }}/**/build/reports/lint-results*.*
 
   build-all:
-    name: 🔨 Build All modules
+    name: "🔨 Build All modules"
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Set up JDK 11.
+      - name: "Set up JDK 11."
         uses: actions/setup-java@v3
         with:
           distribution: 'zulu'
           java-version: 11
 
-      - name: Set up Android SDK.
+      - name: "Set up Android SDK."
         uses: android-actions/setup-android@v2
 
-      - name: Checkout ${{ github.ref }} branch in ${{ github.repository }} repository.
+      - name: "Checkout ${{ github.ref }} branch in ${{ github.repository }} repository."
         uses: actions/checkout@v3
 
-      - name: Validate Gradle Wrapper JARs.
+      - name: "Validate Gradle Wrapper JARs."
         uses: gradle/wrapper-validation-action@v1
 
-      - name: Build & Verify project.
+      - name: "Build & Verify project."
         run: >
           ./gradlew
           --no-daemon
