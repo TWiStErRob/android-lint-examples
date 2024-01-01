@@ -1,9 +1,5 @@
 apply plugin: 'java-library'
 
-repositories {
-	google()
-}
-
 dependencies {
 	compileOnly("com.android.tools.lint:lint-checks:26.2.1")
 }
