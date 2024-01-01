@@ -11,7 +11,7 @@ kotlin = "1.6.21"
 androidx-annotation = "1.4.0"
 androidx-appcompat = "1.4.2"
 androidx-recyclerview = "1.2.1"
-androidx.constraintlayout = "2.1.4"
+androidx-constraintlayout = "2.1.4"
 
 junit4 = "4.13.2"
 
