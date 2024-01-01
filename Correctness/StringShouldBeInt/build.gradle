@@ -1,7 +1,6 @@
 apply from: rootProject.file('gradle/module-check-lib.gradle')
 
-// REPORT doesn't work on minSdk and targetSdk
-expectedViolationCount(6/*foo ""*/ + 3/*foo("")*/ + 3/*foo = ""*/)
+expectedViolationCount(6/*foo ""*/ + 6/*foo("")*/ + 6/*foo = ""*/)
 
 //noinspection GroovyConstantIfStatement need to disable execution path, otherwise Gradle configuration phase would fail.
 if (false) {
