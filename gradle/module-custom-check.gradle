@@ -27,3 +27,13 @@ ext.lintRegistry = { String fqcn ->
 		}
 	}
 }
+
+java {
+	toolchain {
+		languageVersion = libs.versions.java.lint.map(JavaLanguageVersion::of)
+	}
+}
+
+project.kotlin {
+	jvmToolchain(libs.versions.java.lint.get().toInteger())
+}
