@@ -11,8 +11,8 @@ buildscript {
 	}
 }
 
-apply plugin: 'java-library'
-apply plugin: 'kotlin'
+apply plugin: 'org.gradle.java-library'
+apply plugin: 'org.jetbrains.kotlin.jvm'
 
 dependencies {
 	def lintVersion = Version.ANDROID_TOOLS_BASE_VERSION
