@@ -9,7 +9,9 @@
 			"matchPackagePrefixes": [
 				"com.android.tools.build:",
 				"com.android.tools.lint:",
-				"org.jetbrains.kotlin:"
+				"org.jetbrains.kotlin:",
+				"org.jetbrains.kotlin.",
+				"com.android."
 			],
 			"matchDepNames": [
 				"gradle"
