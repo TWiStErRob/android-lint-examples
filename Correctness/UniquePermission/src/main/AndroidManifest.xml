@@ -1,6 +1,5 @@
 <manifest
 		xmlns:android="http://schemas.android.com/apk/res/android"
-		package="net.twisterrob.lints.correctness.UniquePermission"
 		>
 
 	<!-- REPORT UniquePermission ignores exact duplicate, because `&& !name.equals(nameToFull.get(base))`. -->

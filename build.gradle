@@ -33,11 +33,6 @@ tasks.register("createModule") {
 		""".stripIndent().trim() + "\n"
 		gitAdd(buildGradle)
 
-		def manifest = new File(module, "src/main/AndroidManifest.xml")
-		manifest.parentFile.mkdirs()
-		manifest.text = "<manifest package=\"${packageName}.${checkName}\" />\n"
-		gitAdd(manifest)
-
 		def java = new File(module, "src/main/java/${packageName.replace('.', '/')}/${checkName}Violation.java")
 		java.parentFile.mkdirs()
 		java.text = """

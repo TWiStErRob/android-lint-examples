@@ -1,6 +1,5 @@
 <manifest
 		xmlns:android="http://schemas.android.com/apk/res/android"
-		package="net.twisterrob.lints.internationalization.RtlCompat"
 		>
 
 	<application android:supportsRtl="true" />

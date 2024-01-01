@@ -1,1 +1,11 @@
-<manifest package="net.twisterrob.lints.performance.UnusedIds" />
+<!--
+    Have to keep for applications in AGP 7.4, because
+    > Error while evaluating property 'versionCode'
+    > of task ':Performance:UnusedIds:generateDebugBuildConfig'.
+    When buildFeatures.buildConfig = true.
+
+    > Error while evaluating property 'variantOutputs.$0.versionCode'
+    > of task ':Performance:UnusedIds:createDebugCompatibleScreenManifests'.
+    When buildFeatures.buildConfig = false.
+-->
+<manifest />

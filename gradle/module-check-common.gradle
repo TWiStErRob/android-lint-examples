@@ -1,8 +1,10 @@
 apply plugin: 'org.jetbrains.kotlin.android'
 
 def checkName = project.name.replaceAll(/-.*/, '')
+def checkPack = kotlin.text.StringsKt.removeSuffix(project.path, ":${project.name}").replaceAll(':', '.')
 
 project.android {
+	namespace = "net.twisterrob.lints${checkPack.toLowerCase()}.${project.name.replaceAll('-', '_')}"
 	compileSdk = libs.versions.android.compileSdk.get().toInteger()
 
 	defaultConfig {
