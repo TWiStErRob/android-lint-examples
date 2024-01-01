@@ -1,5 +1,8 @@
 apply from: rootProject.file('gradle/module-check-lib.gradle')
 
+// REPORT ObsoleteLintCustomCheck doesn't report "which did not specify the Lint API version it was compiled with" any more.
+expectedViolationCount(0)
+
 dependencies {
 	lintChecks project('check')
 }
