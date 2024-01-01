@@ -5,5 +5,5 @@ expectedViolationCount(2 + 2)
 
 dependencies {
 	//noinspection GradleDependency irrelevant for this violation
-	implementation "androidx.constraintlayout:constraintlayout:2.1.3"
+	implementation "androidx.constraintlayout:constraintlayout:2.1.4"
 }

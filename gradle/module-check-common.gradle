@@ -3,11 +3,11 @@ apply plugin: 'kotlin-android'
 def checkName = project.name.replaceAll(/-.*/, '')
 
 android {
-	compileSdk = 31
+	compileSdk = 34
 
 	defaultConfig {
 		minSdk = 14
-		targetSdk = 31
+		targetSdk = 34
 	}
 
 	lint { // com.android.build.api.dsl.Lint it ->
@@ -37,7 +37,7 @@ repositories {
 }
 
 dependencies {
-	implementation "androidx.annotation:annotation:1.3.0"
+	implementation "androidx.annotation:annotation:1.7.1"
 	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${VERSION_KOTLIN}"
 
 	testImplementation "junit:junit:4.13.2"
