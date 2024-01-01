@@ -37,7 +37,8 @@ repositories {
 }
 
 dependencies {
-	implementation "androidx.annotation:annotation:1.7.1"
+	implementation "androidx.annotation:annotation:1.4.0"
+	implementation(enforcedPlatform("org.jetbrains.kotlin:kotlin-bom:${VERSION_KOTLIN}"))
 	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${VERSION_KOTLIN}"
 
 	testImplementation "junit:junit:4.13.2"
