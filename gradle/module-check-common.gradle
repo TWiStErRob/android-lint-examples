@@ -1,13 +1,13 @@
-apply plugin: 'kotlin-android'
+apply plugin: 'org.jetbrains.kotlin.android'
 
 def checkName = project.name.replaceAll(/-.*/, '')
 
-android {
-	compileSdk = 34
+project.android {
+	compileSdk = libs.versions.android.compileSdk.get().toInteger()
 
 	defaultConfig {
-		minSdk = 14
-		targetSdk = 34
+		minSdk = libs.versions.android.minSdk.get().toInteger()
+		targetSdk = libs.versions.android.targetSdk.get().toInteger()
 	}
 
 	lint { // com.android.build.api.dsl.Lint it ->
@@ -31,18 +31,13 @@ android {
 	}
 }
 
-repositories {
-	google()
-	mavenCentral()
-}
-
 dependencies {
-	implementation "androidx.annotation:annotation:1.4.0"
-	implementation(enforcedPlatform("org.jetbrains.kotlin:kotlin-bom:${VERSION_KOTLIN}"))
-	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${VERSION_KOTLIN}"
+	implementation(libs.androidx.annotation)
+	implementation(enforcedPlatform(libs.kotlin.bom))
+	implementation(libs.kotlin.stdlib)
 
-	testImplementation "junit:junit:4.13.2"
-	testImplementation "org.jetbrains.kotlin:kotlin-test-junit:${VERSION_KOTLIN}"
+	testImplementation(libs.junit4)
+	testImplementation(libs.kotlin.test)
 }
 
 project.ext.expectedViolationCount = { count ->
