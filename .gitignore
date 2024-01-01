@@ -5,11 +5,11 @@
 !/.idea/inspectionProfiles/*
 
 # Gradle
-.gradle
+.gradle/
 build/
 
 # Android
-captures/
+/captures/
 /local.properties
 .externalNativeBuild
 
@@ -17,4 +17,4 @@ captures/
 .DS_Store
 
 # Custom
-temp/
+/temp/
