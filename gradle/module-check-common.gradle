@@ -29,6 +29,15 @@ project.android {
 		it.checkGeneratedSources = false
 		it.checkDependencies = false
 	}
+
+	compileOptions {
+		sourceCompatibility = libs.versions.java.android.map(JavaVersion::toVersion).get()
+		targetCompatibility = libs.versions.java.android.map(JavaVersion::toVersion).get()
+	}
+}
+
+project.kotlin {
+	jvmToolchain(libs.versions.java.android.get().toInteger())
 }
 
 dependencies {
