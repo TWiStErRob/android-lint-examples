@@ -1,0 +1,35 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": [
+		"local>TWiStErRob/renovate-config"
+	],
+	"packageRules": [
+		{
+			"description": "Disable updating the core tooling because it's not automatable.",
+			"matchPackagePrefixes": [
+				"com.android.tools.build:",
+				"com.android.tools.lint:",
+				"org.jetbrains.kotlin:"
+			],
+			"matchDepNames": [
+				"gradle"
+			],
+			"enabled": false
+		},
+		{
+			"description": "Keep older version because it's not compatible with Kotlin metadata of current AGP 7.1.3.",
+			"matchPackageNames": [ "androidx.annotation:annotation" ],
+			"allowedVersions": "<1.5.0"
+		},
+		{
+			"description": "Keep older version because it's not compatible with Kotlin metadata of current AGP 7.1.3.",
+			"matchPackageNames": [ "androidx.appcompat:appcompat" ],
+			"allowedVersions": "<1.5.0"
+		},
+		{
+			"description": "Keep older version because it's not compatible with Kotlin metadata of current AGP 7.1.3.",
+			"matchPackageNames": [ "androidx.recyclerview:recyclerview" ],
+			"allowedVersions": "<1.3.0"
+		}
+	]
+}

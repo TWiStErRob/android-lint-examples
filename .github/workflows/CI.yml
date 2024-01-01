@@ -20,7 +20,7 @@ jobs:
       contents: read
     steps:
       - name: "Checkout ${{ github.ref }} branch in ${{ github.repository }} repository."
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: "Validate Gradle Wrapper JARs."
         uses: gradle/wrapper-validation-action@v1
@@ -33,7 +33,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: "Checkout ${{ github.ref }} branch in ${{ github.repository }} repository."
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: "Build & Verify project."
         run: >
@@ -49,7 +49,7 @@ jobs:
 
       - name: "Upload 'Lint Results' artifact."
         if: success() || failure()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: 'Lint Results'
           path: |
@@ -63,7 +63,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: "Checkout ${{ github.ref }} branch in ${{ github.repository }} repository."
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: "Build & Verify project."
         run: >
@@ -78,7 +78,7 @@ jobs:
 
       - name: "Upload 'Lint Results (Quick)' artifact."
         if: success() || failure()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: 'Lint Results (Quick)'
           path: |
@@ -92,7 +92,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: "Checkout ${{ github.ref }} branch in ${{ github.repository }} repository."
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: "Build & Verify project."
         run: >
