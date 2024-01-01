@@ -1,4 +1,4 @@
-package net.twisterrob.lints.correctness.innerclass_separator;
+package net.twisterrob.lints.correctness.InnerclassSeparator;
 
 import android.app.Application;
 
