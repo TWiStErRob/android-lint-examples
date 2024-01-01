@@ -5,7 +5,7 @@ android-minSdk = "14"
 
 # TODO Check renovate.json.
 agp = "7.1.3"
-kotlin = "1.6.21"
+kotlin = "1.8.22"
 butterknife = "10.2.3"
 
 androidx-annotation = "1.4.0"
