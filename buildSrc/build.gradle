@@ -1,28 +1,9 @@
 import com.android.Version
 
-// this block specifies the classpath of this file only, has no effect on the project itself
-buildscript {
-	ext.props = new Properties().with {
-		file("../gradle.properties").withInputStream { load(it) }
-		return it
-	}
-	repositories {
-		google()
-		mavenCentral()
-	}
-	dependencies {
-		// To be able to access com.android.Version from com.android.tools:common artifact.
-		classpath "com.android.tools.build:gradle:${props.VERSION_AGP}"
-		//classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${props.VERSION_KOTLIN}"
-	}
-}
-
-apply plugin: 'java-library'
-//apply plugin: 'kotlin'
-
-repositories {
-	google()
-	mavenCentral()
+plugins {
+	// To be able to access com.android.Version from com.android.tools:common artifact.
+	alias(libs.plugins.agp) apply false
+	id("org.gradle.java-library")
 }
 
 configurations {
@@ -33,7 +14,7 @@ configurations {
 }
 
 dependencies {
-	sourcesOnly "com.android.tools.build:gradle:${props.VERSION_AGP}"
+	sourcesOnly(libs.agp)
 	sourcesOnly "com.android.tools.lint:lint:${Version.ANDROID_TOOLS_BASE_VERSION}"
 	sourcesOnly "com.android.tools.lint:lint-gradle:${Version.ANDROID_TOOLS_BASE_VERSION}"
 }

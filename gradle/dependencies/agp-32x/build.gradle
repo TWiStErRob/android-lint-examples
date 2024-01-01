@@ -1,7 +1,5 @@
-apply plugin: 'java-library'
-
-repositories {
-	google()
+plugins {
+	id("org.gradle.java-library")
 }
 
 dependencies {

@@ -1,3 +1,27 @@
+pluginManagement {
+	repositories {
+		google()
+		mavenCentral()
+		gradlePluginPortal()
+	}
+	resolutionStrategy {
+		eachPlugin {
+			if (requested.id.id == "com.jakewharton.butterknife") {
+				// useModule(libs.butterknife.plugin)
+				useModule("com.jakewharton:butterknife-gradle-plugin:${requested.version}")
+			}
+		}
+	}
+}
+
+dependencyResolutionManagement {
+	repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+	repositories {
+		google()
+		mavenCentral()
+	}
+}
+
 include ':gradle:debugger'
 
 if (getProperty("lints.use.all.versions").toBoolean()) {

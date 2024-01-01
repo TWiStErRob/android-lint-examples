@@ -1,22 +1,14 @@
-buildscript {
-	ext.butterknife_version = '10.2.3'
-	repositories {
-		google()
-		mavenCentral()
-	}
-	dependencies {
-		classpath "com.jakewharton:butterknife-gradle-plugin:${butterknife_version}"
-	}
+plugins {
+	alias(libs.plugins.butterknife)
 }
 
 apply from: rootProject.file('gradle/module-check-lib.gradle')
-apply plugin: 'com.jakewharton.butterknife'
 
 expectedViolationCount(2)
 
 dependencies {
-	implementation "com.jakewharton:butterknife:${butterknife_version}"
-	annotationProcessor "com.jakewharton:butterknife-compiler:${butterknife_version}"
+	implementation(libs.butterknife)
+	annotationProcessor(libs.butterknife.compiler)
 
 	// A hack to get access to InvalidR2UsageDetector for source and debugging.
 	afterEvaluate { debugCompileOnly(debugLintJars(project)) }
