@@ -25,7 +25,8 @@ _Note: `include ':Category'` is not necessary, it's implicitly imported by Gradl
 
 Debugging lint
 --------------
-Note: remember to make sure `:lint` will run by calling `...:cleanLint` in the same build.
+Note: remember to make sure `:lint` will run by calling `...:cleanLintAnalyzeDebug` in the same build.
+Alternatively: `:lintAnalyzeDebug --rerun`.
 
 ### Quick
 _This approach should work in every project._
