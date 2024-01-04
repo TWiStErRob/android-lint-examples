@@ -1,0 +1,19 @@
+result manually re-sorted to account for nested categories (total: 456):
+    249 Category: Correctness
+     13 Category: Correctness:Messages
+      4 Category: Correctness:Chrome OS
+     18 Category: Usability
+     21 Category: Usability:Icons
+      6 Category: Usability:Typography
+     59 Category: Security
+     43 Category: Performance
+      1 Category: Performance:Application Size
+     12 Category: Lint Implementation Issues
+      7 Category: Internationalization
+      4 Category: Internationalization:Bidirectional Text
+      1 Category: Interoperability
+      4 Category: Interoperability:Kotlin Interoperability
+      6 Category: Compliance
+      5 Category: Accessibility
+      2 Category: Productivity
+      1 Category: Testing
