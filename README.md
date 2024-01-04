@@ -57,5 +57,7 @@ Reading
  * Lint categories (based on `lint-checks-26.0.0-dev.jar`)
    ```shell
    lint --show | grep 'Category:' | uniq --count | sort --reverse
+   # Windows with grep and uniq helpers from cpp-w64devkit:
+   lint --show | grep "Category:" | uniq -c | sort /R
    ```
    See [`docs/lint/categories (version).txt`](docs/lint).
