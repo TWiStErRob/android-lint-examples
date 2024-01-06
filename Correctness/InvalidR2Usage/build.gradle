@@ -30,3 +30,9 @@ static FileCollection debugLintJars(Project project) {
 			.artifacts
 			.artifactFiles
 }
+
+tasks.withType(JavaCompile.class).configureEach { JavaCompile task ->
+	task.options.compilerArgs += [
+			"-Xlint:-processing",
+	]
+}

@@ -33,6 +33,12 @@ project.android {
 	compileOptions {
 		sourceCompatibility = libs.versions.java.android.map(JavaVersion::toVersion).get()
 		targetCompatibility = libs.versions.java.android.map(JavaVersion::toVersion).get()
+		tasks.withType(JavaCompile.class).configureEach { JavaCompile task ->
+			task.options.compilerArgs += [
+					"-Xlint:all",
+					"-Werror",
+			]
+		}
 	}
 }
 
