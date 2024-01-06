@@ -24,8 +24,27 @@ dependencyResolutionManagement {
 
 include ':gradle:debugger'
 
-if (getProperty("lints.use.all.versions").toBoolean()) {
-	include(":gradle:dependencies:agp-32x")
+if (getProperty("net.twisterrob.lints.useAllVersions").toBoolean()) {
+	include(":docs:browser:agp-30x")
+	include(":docs:browser:agp-31x")
+	include(":docs:browser:agp-32x")
+	include(":docs:browser:agp-33x")
+	include(":docs:browser:agp-34x")
+	include(":docs:browser:agp-35x")
+	include(":docs:browser:agp-36x")
+	include(":docs:browser:agp-40x")
+	include(":docs:browser:agp-41x")
+	include(":docs:browser:agp-42x")
+	include(":docs:browser:agp-70x")
+	include(":docs:browser:agp-71x")
+	include(":docs:browser:agp-72x")
+	include(":docs:browser:agp-73x")
+	include(":docs:browser:agp-74x")
+	include(":docs:browser:agp-80x")
+	include(":docs:browser:agp-81x")
+	include(":docs:browser:agp-82x")
+	include(":docs:browser:agp-83x")
+	include(":docs:browser:agp-84x")
 }
 
 include ':Correctness'
