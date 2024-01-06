@@ -106,7 +106,7 @@ abstract class VerifyCount extends DefaultTask {
 	Provider<File> report =
 			verifiedVariant
 					.map { variant ->
-						project.android.lintOptions.xmlOutput
+						project.android.lint.xmlOutput
 								?: project.layout.buildDirectory.file("reports/lint-results-${variant}.xml").get().asFile
 					}
 

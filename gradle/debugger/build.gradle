@@ -16,7 +16,7 @@ tasks.register("debugBuild", GradleBuild.class) { GradleBuild task ->
 tasks.register("debugWrapper", JavaExec.class) { JavaExec task ->
 	// note: JavaExec doesn't work because the there's no Run button for the Run config
 	// and it somehow adds two jdwp agents (probably because of debug button)
-	task.main = "org.gradle.wrapper.GradleWrapperMain"
+	task.mainClass = "org.gradle.wrapper.GradleWrapperMain"
 	task.classpath = files(
 			file("../wrapper/gradle-wrapper.jar")
 	)
