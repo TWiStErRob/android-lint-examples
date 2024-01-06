@@ -25,7 +25,7 @@ dependencyResolutionManagement {
 include ':gradle:debugger'
 
 if (getProperty("net.twisterrob.lints.useAllVersions").toBoolean()) {
-	include(":gradle:dependencies:agp-32x")
+	include(":docs:browser:agp-32x")
 }
 
 include ':Correctness'
