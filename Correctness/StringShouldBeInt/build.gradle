@@ -7,8 +7,10 @@ expectedViolationCount(6/*foo ""*/ + 3/*foo("")*/ + 3/*foo = ""*/)
 if (false) {
 	android {
 		compileSdk "29"
+		//noinspection GrDeprecatedAPIUsage accept for now until removed
 		compileSdkVersion "29"
 		compileSdk("29")
+		//noinspection GrDeprecatedAPIUsage accept for now until removed
 		compileSdkVersion("29")
 		compileSdk = "29"
 		compileSdkVersion = "29"
