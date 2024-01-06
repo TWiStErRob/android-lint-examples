@@ -24,7 +24,7 @@ dependencyResolutionManagement {
 
 include ':gradle:debugger'
 
-if (getProperty("lints.use.all.versions").toBoolean()) {
+if (getProperty("net.twisterrob.lints.useAllVersions").toBoolean()) {
 	include(":gradle:dependencies:agp-32x")
 }
 
