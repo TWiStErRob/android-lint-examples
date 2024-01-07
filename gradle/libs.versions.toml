@@ -3,9 +3,8 @@ android-compileSdk = "34"
 android-targetSdk = "34"
 android-minSdk = "14"
 
-# TODO Check renovate.json.
-agp = "7.4.2"
-kotlin = "1.8.22"
+agp = "8.2.1"
+kotlin = "1.9.22"
 java-android = "8"
 java-lint = "11"
 
