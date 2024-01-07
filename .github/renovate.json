@@ -5,20 +5,6 @@
 	],
 	"packageRules": [
 		{
-			"description": "Disable updating the core tooling because it's not automatable.",
-			"matchPackagePrefixes": [
-				"com.android.tools.build:",
-				"com.android.tools.lint:",
-				"org.jetbrains.kotlin:",
-				"org.jetbrains.kotlin.",
-				"com.android."
-			],
-			"matchDepNames": [
-				"gradle"
-			],
-			"enabled": false
-		},
-		{
 			"description": "Enable updating patch versions in browser.",
 			"matchPackagePrefixes": [
 				"com.android.tools.lint:"
@@ -26,8 +12,8 @@
 			"matchFileNames": [
 				"docs/browser/agp-??x/build.gradle"
 			],
-			"matchUpdateTypes": [ "patch" ],
-			"enabled": true
+			"matchUpdateTypes": [ "major", "minor" ],
+			"enabled": false
 		}
 	]
 }
