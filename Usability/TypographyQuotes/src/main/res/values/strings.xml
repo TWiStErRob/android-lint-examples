@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
 
-	<!-- REPORT doesn't support mandatory-escaped apostrophes -->
 	<string name="apostrophe_escaped">apostrophe\' should be typographical apostrophe’</string>
-	<!-- workaround for the above -->
-	<string name="apostrophe">"apostrophe' should be typographical apostrophe’"</string>
+	<string name="apostrophe_quoted">"apostrophe' should be typographical apostrophe’"</string>
 	<string name="quote">\'apostrophe\' should be ‘directional quote’</string>
 	<!-- REPORT '' (as opposed to ") should be suggesting double quotes -->
 	<string name="two_quote">\'\'double apostrophe\'\' should be “directional quotes“</string>
