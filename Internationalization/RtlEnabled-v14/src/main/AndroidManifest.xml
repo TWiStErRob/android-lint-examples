@@ -1,4 +1,9 @@
 <manifest
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:supportsRtl="true"
-		/>
+		>
+	<!--
+		android:supportsRtl="true" is intentionally located on the wrong element to highlight a false positive.
+		Once that's reported or fixed, this can be moved to the right place, see build.gradle.
+	-->
+</manifest>
