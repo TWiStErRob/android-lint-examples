@@ -31,20 +31,16 @@ project.android {
 		it.checkGeneratedSources = false
 		it.checkDependencies = false
 	}
-
-	compileOptions {
-		sourceCompatibility = libs.versions.java.android.map(JavaVersion::toVersion).get()
-		targetCompatibility = libs.versions.java.android.map(JavaVersion::toVersion).get()
-		tasks.withType(JavaCompile.class).configureEach { JavaCompile task ->
-			task.options.compilerArgs += [
-					"-Xlint:all",
-					"-Werror",
-			]
-		}
-	}
 }
 
-project.kotlin {
+java.toolchain.languageVersion = libs.versions.java.android.map(JavaLanguageVersion::of)
+tasks.withType(JavaCompile.class).configureEach { JavaCompile task ->
+	task.options.compilerArgs += [
+			"-Xlint:all",
+			"-Werror",
+	]
+}
+kotlin {
 	jvmToolchain(libs.versions.java.android.get().toInteger())
 }
 
