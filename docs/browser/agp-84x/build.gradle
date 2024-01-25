@@ -3,5 +3,5 @@ plugins {
 }
 
 dependencies {
-	compileOnly("com.android.tools.lint:lint-checks:31.4.0-alpha05")
+	compileOnly("com.android.tools.lint:lint-checks:31.4.0-alpha06")
 }
