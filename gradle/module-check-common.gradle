@@ -142,15 +142,15 @@ abstract class VerifyCount extends DefaultTask {
 			throw new GradleException(
 					"There were ${numberOfIssues} issues in ${project}, " +
 							"but not all of them were ${checkName}.\n" +
-							"See ${report}.")
+							"See ${report.toURI().toString().replaceFirst(/^file:\//, "file:///")}.")
 		}
 		if (numberOfViolations != expectedViolationCount) {
 			throw new GradleException(
 					"Expected ${expectedViolationCount}, " +
 							"but there were ${numberOfViolations} ${checkName} reported.\n" +
 							"Use expectedViolationCount(${numberOfViolations}) in module's build.gradle, " +
-							"if this is the correct number of violations, " +
-							"or review ${report}.")
+							"if this is the correct number of violations,\n" +
+							"or review ${report.toURI().toString().replaceFirst(/^file:\//, "file:///")}.")
 		}
 	}
 }
