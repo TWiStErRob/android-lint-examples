@@ -1,5 +1,9 @@
 apply from: rootProject.file('gradle/module-check-lib.gradle')
 
+// REPORT (or investigate) it's called twice for this build.gradle file and once for generated Debug R.jar.
+// There might be a 3-retry limit for failures.
+expectedViolationCount(3)
+
 dependencies {
 	lintChecks project('check')
 }
