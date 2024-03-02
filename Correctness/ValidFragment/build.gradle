@@ -1,6 +1,6 @@
 apply from: rootProject.file('gradle/module-check-lib.gradle')
 
-expectedViolationCount(6 /*java*/ + 6 /*kotlin*/)
+expectedViolationCount(6 /*java*/ + 6 /*kotlin*/ + 1 /*kotlin-internal*/)
 
 tasks.withType(JavaCompile.class).configureEach { JavaCompile task ->
 	task.options.compilerArgs += ["-Xlint:-deprecation"]
