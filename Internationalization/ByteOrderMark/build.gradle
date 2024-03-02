@@ -5,6 +5,7 @@ android.defaultConfig.consumerProguardFile(file('proguard.pro'))
 // There is a byte order mark here >￾<
 // There is a zero-width non-breaking space here >﻿<
 
-expectedViolationCount(7)
+// REPORT gradle.properties is reported 3 times on the same position.
+expectedViolationCount(7 + 2)
 
 // REPORT ByteOrderMarkDetector has duplicate Java scope (26.3.1)
