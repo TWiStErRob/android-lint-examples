@@ -1,4 +1,4 @@
-name: CI
+name: "CI"
 on:
   push
 
@@ -13,14 +13,23 @@ jobs:
 
   validate:
     name: "🦺 Validation"
-    uses: TWiStErRob/github-workflows/.github/workflows/validate.yml@19333c04e57739ec6074b09c6ca09c225c94dc09 # v1
+    uses: TWiStErRob/github-workflows/.github/workflows/validate.yml@94f2ec4f96e146200f801fe7e09310c79cb2d2b3 # v2
+    permissions:
+      contents: read
+      security-events: write
+      actions: read
 
 
   verify:
     name: "🛠 Build & Verify"
     needs: validate
-    runs-on: ubuntu-latest
     timeout-minutes: 10
+
+    permissions:
+      # actions/checkout
+      contents: read
+
+    runs-on: ubuntu-latest
     steps:
       - name: "Set up JDK 17."
         uses: actions/setup-java@v4
@@ -28,10 +37,11 @@ jobs:
           distribution: 'zulu'
           java-version: 17
 
-      - name: "Checkout ${{ github.ref }} branch in ${{ github.repository }} repository."
+      - name: "Checkout ${{ github.ref }} ref in ${{ github.repository }} repository."
         uses: actions/checkout@v4
 
       - name: "Build & Verify project."
+        shell: bash
         run: >
           ./gradlew
           --no-daemon
@@ -44,10 +54,11 @@ jobs:
           lintVerifyCount
 
       - name: "Upload 'Lint Results' artifact."
-        if: success() || failure()
+        if: ${{ success() || failure() }}
         uses: actions/upload-artifact@v4
         with:
           name: 'Lint Results'
+          if-no-files-found: error
           path: |
             ${{ github.workspace }}/**/build/reports/lint-results*.*
 
@@ -55,8 +66,13 @@ jobs:
   build-quick:
     name: "🧪 Quick Lint"
     needs: validate
-    runs-on: ubuntu-latest
     timeout-minutes: 10
+
+    permissions:
+      # actions/checkout
+      contents: read
+
+    runs-on: ubuntu-latest
     steps:
       - name: "Set up JDK 17."
         uses: actions/setup-java@v4
@@ -64,10 +80,11 @@ jobs:
           distribution: 'zulu'
           java-version: 17
 
-      - name: "Checkout ${{ github.ref }} branch in ${{ github.repository }} repository."
+      - name: "Checkout ${{ github.ref }} ref in ${{ github.repository }} repository."
         uses: actions/checkout@v4
 
       - name: "Build & Verify project."
+        shell: bash
         run: >
           ./gradlew
           --no-daemon
@@ -79,10 +96,11 @@ jobs:
           lintVerifyCount
 
       - name: "Upload 'Lint Results (Quick)' artifact."
-        if: success() || failure()
+        if: ${{ success() || failure() }}
         uses: actions/upload-artifact@v4
         with:
           name: 'Lint Results (Quick)'
+          if-no-files-found: error
           path: |
             ${{ github.workspace }}/**/build/reports/lint-results*.*
 
@@ -90,8 +108,13 @@ jobs:
   build-all:
     name: "🔨 Build All modules"
     needs: validate
-    runs-on: ubuntu-latest
     timeout-minutes: 10
+
+    permissions:
+      # actions/checkout
+      contents: read
+
+    runs-on: ubuntu-latest
     steps:
       - name: "Set up JDK 17."
         uses: actions/setup-java@v4
@@ -99,10 +122,11 @@ jobs:
           distribution: 'zulu'
           java-version: 17
 
-      - name: "Checkout ${{ github.ref }} branch in ${{ github.repository }} repository."
+      - name: "Checkout ${{ github.ref }} ref in ${{ github.repository }} repository."
         uses: actions/checkout@v4
 
       - name: "Build & Verify project."
+        shell: bash
         run: >
           ./gradlew
           --no-daemon
