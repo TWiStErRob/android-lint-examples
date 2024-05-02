@@ -1,3 +1,10 @@
 apply from: rootProject.file('gradle/module-check-lib.gradle')
 
 android.lint.baseline = file("lint-baseline.xml")
+
+boolean onlySpecific = project.property("lints.check.only.specific").toBoolean()
+if (onlySpecific) {
+	android.lint.checkOnly += "HardcodedText"
+} else {
+	android.lint.enable += "HardcodedText"
+}
