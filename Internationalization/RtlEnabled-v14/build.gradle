@@ -1,8 +1,9 @@
 apply from: rootProject.file('gradle/module-check-lib.gradle')
 
 // REPORT //noinspection ExpiredTargetSdkVersion doesn't work
-android.lint.disable += ["ExpiredTargetSdkVersion"]
-android.defaultConfig.targetSdkVersion 14
+android.lint.disable += ["MinSdkTooLow", "ExpiredTargetSdkVersion"]
+android.defaultConfig.minSdk = 14
+android.defaultConfig.targetSdk = 14
 
 expectedViolationCount(2)
 
