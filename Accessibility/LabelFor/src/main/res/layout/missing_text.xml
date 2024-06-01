@@ -10,11 +10,9 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:labelFor="@id/edit"
-			android:text="Label"
-			tools:ignore="AutoFill,HardcodedText"
+			tools:ignore="AutoFill"
 			>
 		<!-- lint:AutoFill irrelevant for this violation -->
-		<!-- lint:HardcodedText irrelevant for this violation -->
 	</TextView>
 
 	<EditText
@@ -22,9 +20,10 @@
 			android:layout_width="wrap_content"
 			android:layout_height="match_parent"
 			android:inputType="none"
-			tools:ignore="AutoFill,UnusedIds"
+			tools:ignore="AutoFill,HardcodedText,UnusedIds"
 			>
 		<!-- lint:AutoFill irrelevant for this violation -->
+		<!-- lint:HardcodedText irrelevant for this violation -->
 		<!-- lint:UnusedIds REPORT it's actually used -->
 	</EditText>
 

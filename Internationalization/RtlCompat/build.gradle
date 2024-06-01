@@ -1,3 +1,7 @@
 apply from: rootProject.file('gradle/module-check-lib.gradle')
 
+android.lint.disable += ["MinSdkTooLow"]
+// Keep minSdk below 17 for old RTL behavior.
+android.defaultConfig.minSdk = 14
+
 expectedViolationCount(3)
