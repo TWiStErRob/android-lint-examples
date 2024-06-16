@@ -7,8 +7,6 @@ fun literal(textView: TextView) {
 }
 
 fun numberFormat(textView: TextView, number: Int) {
-	// REPORT PsiMethod calledMethod = ((UCallExpression) node).resolve() resolves to null
-	// Is it because Int and Int? toString call is Any.toString and Any?.toString
 	textView.text = number.toString()
 }
 
