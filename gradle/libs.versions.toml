@@ -4,7 +4,7 @@ android-targetSdk = "34"
 android-minSdk = "21"
 
 agp = "8.5.1"
-kotlin = "2.0.0"
+kotlin = "2.0.10"
 java-android = "8"
 java-lint = "11"
 
