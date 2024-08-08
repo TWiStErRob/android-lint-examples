@@ -1,22 +1,19 @@
 {
-	$schema: 'https://docs.renovatebot.com/renovate-schema.json',
+	$schema: "https://docs.renovatebot.com/renovate-schema.json",
 	extends: [
-		'local>TWiStErRob/renovate-config',
+		"local>TWiStErRob/renovate-config",
 	],
 	packageRules: [
 		{
 			description: 'Enable updating patch versions in browser.',
-			matchFileNames: [
-				'docs/browser/agp-??x/build.gradle',
-			],
-			matchUpdateTypes: [
-				'major',
-				'minor',
-			],
-			enabled: false,
 			matchPackageNames: [
-				'com.android.tools.lint:{/,}**',
+				"com.android.tools.lint:*",
 			],
+			matchFileNames: [
+				"docs/browser/agp-??x/build.gradle",
+			],
+			matchUpdateTypes: [ "major", "minor" ],
+			enabled: false,
 		},
 	],
 }
