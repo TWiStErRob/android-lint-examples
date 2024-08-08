@@ -5,7 +5,7 @@
 	],
 	packageRules: [
 		{
-			description: 'Enable updating patch versions in browser.',
+			description: "Enable updating patch versions in browser.",
 			matchPackageNames: [
 				"com.android.tools.lint:*",
 			],
