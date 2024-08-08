@@ -8,7 +8,7 @@ kotlin = "2.0.10"
 java-android = "8"
 java-lint = "11"
 
-androidx-annotation = "1.8.1"
+androidx-annotation = "1.8.2"
 androidx-appcompat = "1.7.0"
 androidx-recyclerview = "1.3.2"
 androidx-constraintlayout = "2.1.4"
