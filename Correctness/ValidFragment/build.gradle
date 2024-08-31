@@ -3,12 +3,14 @@ apply from: rootProject.file('gradle/module-check-lib.gradle')
 expectedViolationCount(6 /*java*/ + 6 /*kotlin*/ + 1 /*kotlin-internal*/)
 
 tasks.withType(JavaCompile.class).configureEach { JavaCompile task ->
+	// Import deprecations cannot be suppressed in Java, so just disable deprecation checks.
+	// Suppressing the FQCN workaround might be viable, but wanted to keep the code realistic.
 	task.options.compilerArgs += ["-Xlint:-deprecation"]
 }
 
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 tasks.withType(KotlinCompile.class).configureEach { KotlinCompile task ->
-	// TODO change this to something more specific: https://youtrack.jetbrains.com/issue/KT-8087
-	kotlinOptions.suppressWarnings = true
+	// TODO change this to something more specific (DEPRECATION): https://youtrack.jetbrains.com/issue/KT-8087
+	compilerOptions.suppressWarnings = true
 }
