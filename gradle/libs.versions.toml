@@ -5,8 +5,8 @@ android-minSdk = "21"
 
 agp = "8.6.0"
 kotlin = "2.0.20"
-java-android = "8"
-java-lint = "11"
+java-android = "17"
+java-lint = "17"
 
 androidx-annotation = "1.8.2"
 androidx-appcompat = "1.7.0"
