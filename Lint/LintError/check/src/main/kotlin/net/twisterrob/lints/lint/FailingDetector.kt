@@ -29,6 +29,11 @@ class FailingRegistry : IssueRegistry() {
 class FailingDetector : Detector(), OtherFileScanner {
 
 	override fun run(context: Context) {
+		// TODEL https://issuetracker.google.com/issues/381887323
+		// Skip the condition in LintDriver, to re-throw the exception for Gradle.
+		// Since AGP 8.7, see LintDriver.handleDetectorError / https://issuetracker.google.com/issues/230685896
+		com.android.tools.lint.client.api.LintClient.clientName = "FailingGradle"
+
 		error("Trigger LintError for ${context.file}")
 	}
 
