@@ -10,7 +10,7 @@ java-lint = "17"
 
 androidx-annotation = "1.9.1"
 androidx-appcompat = "1.7.0"
-androidx-recyclerview = "1.3.2"
+androidx-recyclerview = "1.4.0"
 androidx-constraintlayout = "2.2.0"
 
 junit4 = "4.13.2"
