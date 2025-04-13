@@ -46,8 +46,6 @@ tasks.withType(JavaCompile.class).configureEach { JavaCompile task ->
 	task.options.compilerArgs += [
 			"-Xlint:all",
 			"-Werror",
-			// TODEL Workaround for https://issuetracker.google.com/issues/359561906, remove when android-35 v3 is released.
-			"-Xlint:-classfile",
 	]
 }
 kotlin {
