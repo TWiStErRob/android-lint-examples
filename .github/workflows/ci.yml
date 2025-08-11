@@ -38,7 +38,7 @@ jobs:
           java-version: 17
 
       - name: "Checkout ${{ github.ref }} ref in ${{ github.repository }} repository."
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: "Build & Verify project."
         shell: bash
@@ -81,7 +81,7 @@ jobs:
           java-version: 17
 
       - name: "Checkout ${{ github.ref }} ref in ${{ github.repository }} repository."
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: "Build & Verify project."
         shell: bash
@@ -118,7 +118,7 @@ jobs:
     steps:
 
       - name: "Checkout ${{ github.ref }} ref in ${{ github.repository }} repository."
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: "Set up Java."
         uses: actions/setup-java@v4
