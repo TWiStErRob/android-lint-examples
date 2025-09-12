@@ -1,4 +1,5 @@
 import static net.twisterrob.gradle.GradleUtils.doNotNagAbout
+import java.util.regex.Pattern
 
 pluginManagement {
 	repositories {
