@@ -387,13 +387,30 @@ include ':Lint:ObsoleteLintCustomCheck-UnlistableRegistry:check'
 
 def gradleVersion = GradleVersion.current().version
 
-// TODEL Gradle 8.14 vs AGP 8.9 https://issuetracker.google.com/issues/408334529
+// TODEL Gradle 9.1 vs AGP 8.13 https://issuetracker.google.com/issues/444260628
 doNotNagAbout(
-		"Retrieving attribute with a null key. " +
-				"This behavior has been deprecated. " +
-				"This will fail with an error in Gradle 10. " +
-				"Don't request attributes from attribute containers using null keys. " +
-				"Consult the upgrading guide for further information: " +
-				"https://docs.gradle.org/${gradleVersion}/userguide/upgrading_version_8.html#null-attribute-lookup",
-		"at com.android.build.gradle.internal.ide.dependencies.ArtifactUtils.isAndroidProjectDependency(ArtifactUtils.kt:539)",
+		Pattern.compile(
+				Pattern.quote("Declaring dependencies using multi-string notation has been deprecated. ") +
+						Pattern.quote("This will fail with an error in Gradle 10. ") +
+						Pattern.quote("Please use single-string notation instead: ") +
+						"\"${Pattern.quote("com.android.tools.build:aapt2:")}\\d+\\.\\d+\\.\\d+(-(alpha|beta|rc)\\d+)?-\\d+:(windows|linux|osx)${Pattern.quote("\". ")}" +
+						Pattern.quote("Consult the upgrading guide for further information: ") +
+						Pattern.quote("https://docs.gradle.org/${gradleVersion}/userguide/upgrading_version_9.html#dependency_multi_string_notation") +
+						".*",
+		),
+		//"at com.android.build.gradle.internal.res.Aapt2FromMaven\$Companion.create(Aapt2FromMaven.kt:139)",
+)
+
+// TODEL Gradle 9.1 vs AGP 8.13 https://issuetracker.google.com/issues/444260628
+doNotNagAbout(
+		Pattern.compile(
+				Pattern.quote("Declaring dependencies using multi-string notation has been deprecated. ") +
+						Pattern.quote("This will fail with an error in Gradle 10. ") +
+						Pattern.quote("Please use single-string notation instead: ") +
+						"\"${Pattern.quote("com.android.tools.lint:lint-gradle:")}\\d+\\.\\d+\\.\\d+(-(alpha|beta|rc)\\d+)?${Pattern.quote("\". ")}" +
+						Pattern.quote("Consult the upgrading guide for further information: ") +
+						Pattern.quote("https://docs.gradle.org/${gradleVersion}/userguide/upgrading_version_9.html#dependency_multi_string_notation") +
+						".*",
+		),
+		//"at com.android.build.gradle.internal.lint.LintFromMaven\$Companion.from(AndroidLintInputs.kt:2850)",
 )
