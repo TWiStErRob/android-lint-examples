@@ -83,6 +83,9 @@ def lintVerifyCount = tasks.register("lintVerifyCount", VerifyCount)
 
 def debugging = project.findProperty("org.gradle.debug")?.toBoolean() == true
 if (!debugging) {
+	lintVerifyCount.configure { Task task ->
+		task.dependsOn("lint")
+	}
 	tasks.named("lint").configure { Task task ->
 		task.finalizedBy(lintVerifyCount)
 	}
