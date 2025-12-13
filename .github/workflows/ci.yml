@@ -55,7 +55,7 @@ jobs:
 
       - name: "Upload 'Lint Results' artifact."
         if: ${{ success() || failure() }}
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: 'Lint Results'
           if-no-files-found: error
@@ -97,7 +97,7 @@ jobs:
 
       - name: "Upload 'Lint Results (Quick)' artifact."
         if: ${{ success() || failure() }}
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: 'Lint Results (Quick)'
           if-no-files-found: error
