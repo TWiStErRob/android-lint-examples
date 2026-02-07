@@ -7,10 +7,10 @@ apply(from = rootProject.file("gradle/module-check-lib.gradle"))
 val expectedViolationCount: groovy.lang.Closure<Any?> by project.extra
 
 // REPORT doesn't work with setters, only with method calls
-expectedViolationCount(2 /*compile*/ + 1 /*min*/ + 1 /*target*/)
+expectedViolationCount(2 /*compile*/ + 1 /*min*/)
 
 // Disable related, but irrelevant issues.
-android.lint.disable += listOf("ExpiredTargetSdkVersion", "MinSdkTooLow")
+android.lint.disable += listOf("MinSdkTooLow")
 
 // Need to disable execution path, otherwise Gradle configuration phase would fail.
 if (@Suppress("ConstantConditionIf") false) {
@@ -28,13 +28,6 @@ if (@Suppress("ConstantConditionIf") false) {
 			minSdkVersion("14")
 			@Suppress("DEPRECATION")
 			setMinSdkVersion("14")
-
-			@Suppress("DEPRECATION")
-			targetSdk = 28
-			@Suppress("DEPRECATION")
-			targetSdkVersion("28")
-			@Suppress("DEPRECATION")
-			setTargetSdkVersion("28")
 		}
 	}
 }
