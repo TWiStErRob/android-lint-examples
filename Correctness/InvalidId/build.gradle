@@ -6,6 +6,11 @@ expectedViolationCount(4)
 
 afterEvaluate {
 	// Disable some tasks, because we're using IDs that don't compile.
+	tasks.parseDebugLocalResources.enabled = false
+	tasks.parseReleaseLocalResources.enabled = false
+	tasks.generateDebugRFile.enabled = false
+	tasks.generateReleaseRFile.enabled = false
+	tasks.generateDebugUnitTestStubRFile.enabled = false
 	tasks.packageDebugResources.enabled = false
 	tasks.packageReleaseResources.enabled = false
 	tasks.mergeReleaseResources.enabled = false
