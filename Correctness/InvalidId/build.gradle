@@ -11,9 +11,7 @@ afterEvaluate {
 	tasks.generateDebugRFile.enabled = false
 	tasks.generateReleaseRFile.enabled = false
 	tasks.generateDebugUnitTestStubRFile.enabled = false
-	tasks.generateReleaseUnitTestStubRFile.enabled = false
 	tasks.packageDebugResources.enabled = false
 	tasks.packageReleaseResources.enabled = false
 	tasks.mergeReleaseResources.enabled = false
-	tasks.verifyReleaseResources.enabled = false
 }

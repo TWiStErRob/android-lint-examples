@@ -1,5 +1,3 @@
-apply plugin: 'org.jetbrains.kotlin.android'
-
 def checkName = project.name.replaceAll(/-.*/, '')
 def checkPack = kotlin.text.StringsKt.removeSuffix(project.path, ":${project.name}").replaceAll(':', '.')
 

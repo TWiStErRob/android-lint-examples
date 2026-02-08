@@ -3,7 +3,7 @@ android-compileSdk = "35"
 android-targetSdk = "35"
 android-minSdk = "21"
 
-agp = "8.13.2"
+agp = "9.0.0"
 kotlin = "2.3.10"
 java-android = "17"
 java-lint = "17"
@@ -32,4 +32,3 @@ junit4 = { module = "junit:junit", version.ref = "junit4" }
 [plugins]
 agp = { id = "com.android.application", version.ref = "agp"}
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
