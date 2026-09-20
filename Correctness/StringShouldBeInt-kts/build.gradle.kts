@@ -4,7 +4,7 @@ plugins {
 	id("com.android.library")
 }
 apply(from = rootProject.file("gradle/module-check-lib.gradle"))
-val expectedViolationCount: groovy.lang.Closure<Any?> by project.extra
+val expectedViolationCount = project.extra["expectedViolationCount"] as groovy.lang.Closure<Any?>
 
 // REPORT doesn't work with setters, only with method calls
 expectedViolationCount(2 /*compile*/ + 1 /*min*/)
